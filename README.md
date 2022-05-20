@@ -3,6 +3,3 @@
 Account-
 UN-Tee Chor Yang
 PASS-123
-
-qewretyui
-wertyui
