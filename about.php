@@ -109,52 +109,6 @@
     
     <!-- Content here -->
     <br><br>
-    <section class="centerblocktext fontsignin">
-        <div class="signinbox col-sm-12">
-            <form class="form-signin" method="POST" action="">
-                <img class="mb-4 img" src="images\radiant_bg.png" alt="" width="130" height="180">
-
-                <br>
-                <h1 class="h3 mb-3 font-weight-normal">Sign In:</h1>
-                <hr style="height:2px">
-
-                <br>
-                <label for="inputUname" class="sr-only">Username:</label>
-                <br>
-
-                <input type="text" id="inputUname" name="username"class="form-control" placeholder="Username" required="" autofocus="">
-
-                <br>
-                <label for="inputPassword" class="sr-only">Password:</label>
-
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
-
-                <div class="checkbox mb-3">
-                    <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-
-                <div class="col text-center">
-                    <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Log in</button>
-                    <br><br>
-                </div>
-
-                <div class="right">
-                    <p>Don't have an account?
-                        <a href="signup.php" class="link-primary">SIGN UP</a>
-                    </p>
-                </div>
-                <div class="left">
-                    <br>
-                    <a href="forgotpassword.php" class="link-primary">Forgot Password?</a>
-                </div>
-            </form>
-        </div>
-        <br><br>
-    </section>
-
-
 
     <!--Footer-->
     <div class="container">
