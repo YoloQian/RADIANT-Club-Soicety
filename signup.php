@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
         }
         else{
             if ($_SERVER["REQUEST_METHOD"] == "POST") {    
-            $result = mysqli_query($conn, "INSERT INTO students (username, email, password, Fname, Lname, studentid, intake, mobile_num, gender, birth_date, ic_passport, country, role) VALUES ('$uname','$email','$password','$firstname','$lastname','$studentid','$intake','$mobilenum','$gender','$birthdate','$icpassport','$country','student')");
+            $result = mysqli_query($conn, "INSERT INTO students (username, email, password, Fname, Lname, studentid, intake, mobile_num, gender, birth_date, ic_passport, country, role) VALUES ('$uname','$email','$password','$firstname','$lastname','$studentid','$intake','$mobilenum','$gender','$birthdate','$icpassport','$country','Students')");
             mysqli_close($conn);
             header("location: signupsuccess.php");
 

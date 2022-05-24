@@ -30,6 +30,27 @@
       font-size: 25px;
       }
 
+      .clubs {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+
+      .clubs img{
+        width: 100%;
+      }
+
+      .clubs button:hover {
+        opacity: 0.7;
+      }
+
+      .column {
+        float: left;
+        width: 40%;
+        padding: 0 10px;
+      }
     </style>
 </head>
 <body>
@@ -51,14 +72,11 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id=All'" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="#">COURSE-BASED & ACADEMIC</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">SPERFORMING & CREATIVE</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">RECREATION, SPORTS & GAMES</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">COMMUNITY CENTRIC & VOLUNTARY</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=Club">CLUBS</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=Society">SOCIETY</a></li>
+            
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
           </ul>
@@ -108,14 +126,48 @@
     </div>
     
     <!-- Content here -->
-    <br><br>
+    <?php
+$id=$_GET["id"];
+if($id=='Club'){
+    $query = "SELECT * FROM clubs WHERE category='Club' ";
+}else if($id=='Society'){
+    $query = "SELECT * FROM clubs WHERE category='Society' ";
+}else {
+    $query = "SELECT * FROM clubs ";
+}
+    $result = mysqli_query($conn,$query);
+    while ($row = mysqli_fetch_array($result)) {
+?>
+<div class="row">
+      <div class="column">
+        <form method="post">
+          <div class="clubs">
+            <br>
+            <h2><?php echo $row["cname"]; ?></h2>
+            <img src="<?php echo 'clubsimages/' .$row["cimage"]; ?>">
+            <hr>
+            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
+            <hr>
+          </div>
+        </form>
+      </div>
+    </div>    
+    <?php
+      }
+    ?>   
+
+    
+
+    
+
+
 
 
 
     <!--Footer-->
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">© 2022 Radiant Club & Society, Inc</p>
+        <p class="col-md-4 mb-0 text-muted">Â© 2022 Radiant Club & Society, Inc</p>
 
         <a class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
           <img src="images/radiant.png" style="border-radius: 10%;" alt="Logo" width="55" height="55">
