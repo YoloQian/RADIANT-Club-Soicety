@@ -22,12 +22,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Koulen' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <style>
       h1.a {
       font-family: "Capriola", sans-serif;
       color: #e6b800;
       font-size: 25px;
+      }
+      .content {
+      max-width: 1300px;
+      margin: auto;
+      padding: 10px;
+      }
+      .bgcontainer {
+      position: relative;
+      text-align: center;
+      }
+      /* Centered text */
+      .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       }
 
     </style>
@@ -108,11 +125,93 @@
     </div>
     </div>
     
-    <!-- Content here -->
-    <br><br>
+    <!-- Explore Club -->
+    <div style="background-color: #FFFFED;">
+      <div class="p-4 p-md-5 mb-4 rounded text-center content" style="background:url('images/clubs-and-socities-page-banner.png') no-repeat; background-size:contain;background-size: 100% 60%;">
+          <h1 class="display-3 fst-italic" style="font-family: Koulen,san-serif; margin-top:300px; font-weight: bold;  text-shadow: 5px 5px 5px #4DC7C7;">
+          Wider Range of Social, <br>Cultural and Education Activities<br>To choose from</h1>
+          <button onclick="location.href='clubs.php'" type="button" class="btn btn-warning btn-lg " style="border-radius: 10%; margin-top:25px; font-weight: bold; ">
+          Explore &nbsp;<img src="images/right-arrow.png" ></button>
+      </div>
+    </div>
 
+    <!--Introduce Radiant-->
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative mx-auto content" style="">
+        <div class="col p-4 d-flex flex-column position-static text-center" style="font-family: Koulen,san-serif;">
+          <h1 class="mb-0" style=" font-size: 6rem">RADIANT Club & Society</h1>
+          <br>
+          <p class="card-text mb-auto" style="font-size: 1rem">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <br>
+          <button onclick="location.href='about.php'" type="button" class="btn btn-outline-warning mx-auto" style="font-weight: bold; width:200px;">Learn More</button>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/radiant_whitebg.jpg" width="400" height="400">
+      </div>
+    </div>
 
+    <!-- Recent Event -->
+    <div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto content" style="font-family: Koulen,san-serif;" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block card">
+          <h3>First slide label</h3>
+          <p>Some representative placeholder content for the first slide.</p>
+          <a href="#" class="btn btn-primary stretched-link">Details</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block card">
+          <h3>Second slide label</h3>
+          <p>Some representative placeholder content for the second slide.</p>
+          <a href="#" class="btn btn-primary stretched-link">Details</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block card">
+          <h3>Third slide label</h3>
+          <p>Some representative placeholder content for the third slide.</p>
+          <a href="#" class="btn btn-primary stretched-link">Details</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block card">
+          <h3>More Events!</h3>
+          <a href="events.php" class="btn btn-primary stretched-link">View More</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
+  <!-- Help -->
+  <br><br>
+  <div class="card mx-auto content" style="width:50%; font-family: Koulen,san-serif;">
+  <br>
+  <img src="images/helpdesk.webp" class="card-img-top mx-auto" style="" alt="...">
+  <div class="card-body mx-auto text-center">
+    <h1 class="card-title">Need Any Help?</h1>
+    <br>
+    <a href="contact.php" class="btn btn-primary btn-lg">Contact Us Now!</a>
+  </div>
+</div>
+  
     <!--Footer-->
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

@@ -1,13 +1,11 @@
 <?php
-    $servername = "localhost";
-    $user = "root";
-    $password = "";
-    $dbase = "sdp";
-    //establish connection to mysql server
-    $conn = mysqli_connect($servername,$user,$password,$dbase);
-    
+$servername = "localhost";
+$user = "root";
+$password = "";
+$dbase = "sdp";
+//establish connection to mysql server
+$conn = mysqli_connect($servername,$user,$password,$dbase);
 
-    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Macondo' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
+    <link rel="stylesheet" href="signup.css">
     <style>
       h1.a {
       font-family: "Capriola", sans-serif;
@@ -44,7 +44,7 @@
     <!-- Menu-->
     <ul class="nav nav-tabs justify-content-end" style="font-family: Bakbak One,san-serif; color: #fd7e14">
         <li class="nav-item">
-          <a class="nav-link active" style="color:#ffd11a" aria-current="page" href="index.php">HOME</a>
+          <a class="nav-link" style="color:#737373" href="index.php">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " style="color:#737373" href="about.php">ABOUT US</a>
@@ -71,45 +71,15 @@
           <a class="nav-link" style="color:#737373" href="contact.php">CONTACT US</a>
         </li>
         
-        <li class="nav-item ">
-
-          <?php 
-              if (isset($_SESSION['username'])) { ?>
-
-              <ul class="nav nav-pills">
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
-              <?php 
-              if(isset($_SESSION['username'])) {
-                  echo $_SESSION['fullname'];
-              }else {
-                  echo "";
-              } 
-              ?>
-              </a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
-              </ul>
-              </li>
-          </ul>
-          <?php 
-              } 
-              else { ?>
-
-              <button onclick="location.href='login.php'" type="button" class="btn btn-primary">Login</button>
-
-          <?php 
-          } 
-          ?>
-      </li>
+        <li class="nav-item disable">
+            <a class="nav-link disabled" aria-current="page">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </li>
       </ul>
     </div>
     </div>
     
-    <!-- Content here -->
-    <br><br>
+    <!-- Forgot Password-->
+    
 
 
 

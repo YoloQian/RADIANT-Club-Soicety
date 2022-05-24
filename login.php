@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Macondo' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <style>
       h1.a {
@@ -185,16 +186,23 @@
     
     <br><br>
     <!--Sign In-->
+    <div class="content">
     <section class="centerblocktext fontsignin">
-        <div class="signinbox col-sm-12">
+        <div class="col-sm-12">
             <form class="form-signin" method="POST" action="">
-                <img class="mb-4 img" src="images\radiant_bg.png" alt="" width="130" height="180">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative mx-auto" style="width:500px">
+              <div class="col-auto d-none d-lg-block mx-auto">
+                  <img src="images/radiant_whitebg.jpg" width="200" height="200">
+              </div>
+                <div class="col p-4 d-flex flex-column position-static text-center" style="font-family: Macondo,san-serif;">
+                  <h1 class="mb-0" style=" font-size: 2.5rem">RADIANT <br>Club & Society</h1>
+                </div>
+            </div>
 
                 <br>
                 <h1 class="h3 mb-3 font-weight-normal">Sign In:</h1>
                 <hr style="height:2px">
 
-                <br>
                 <label for="inputUname" class="sr-only">Username:</label>
                 <br>
 
@@ -212,6 +220,7 @@
                 </div>
 
                 <div class="col text-center">
+                  <br><hr>
                     <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Log in</button>
                     <br><br>
                 </div>
@@ -229,6 +238,8 @@
         </div>
         <br><br>
     </section>
+    </div>
+    <br>
 
 
     <!--Footer-->

@@ -29,6 +29,11 @@
       color: #e6b800;
       font-size: 25px;
       }
+      .content {
+      max-width: 1300px;
+      margin: auto;
+      padding: 10px;
+      }
 
     </style>
 </head>
@@ -107,8 +112,43 @@
     </div>
     </div>
     
-    <!-- Content here -->
-    <br><br>
+    <!--Who Are We-->
+    <div>
+        <div class="content">
+            <section style="display: flex;">
+            <img src="images/radiant.png" class= "radiantlogo" style="width: 650px;height: 400px;border-radius: 15%; ">
+                <div class="font-monospace" style="display: flex;flex-direction: column;">
+                    <br><br>
+                    <h1 class="text-uppercase" style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem;"><b>Who Are We?</b></h1>
+                    <br>
+                    <p style="margin: 1rem;font-size: 1.3rem;">We are RADIANT Delivery Service which provides delivery services via international or local. Radiant Delivery Services was born to make on-demand delivery possible for everyone at the touch of a button. With just a simple to use website,
+                        users are able to gain access to wide fleet of suitable delivery vehicles helmed by professional drivers.Simply input the drop out location and choose the type of delivery method u need and we will take it up from there to ensure
+                        your package is delivered to its desired destination safely.
+                    </p>
+                    <br><br>
+                    <br>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!--What is Our Goal-->
+    <div class="content">
+        <section style="display: flex;justify-content: center;">      
+              <div class="font-monospace " style="display: flex;flex-direction: column;align-items: center;text-align: center; ">
+                  <br><br>
+                  <h1 class="text-uppercase " style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem; "><b>What is Our Goal?</b></h1>
+                  <br>
+                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure delivering package made convenient to everyone everywhere be it at a park, office, of the comfort of your home, anywhere with just a few clicks away. We aim to strive as one of the top Asia Most Reliable Delivery Services to ensure our services are reliable and trusted.
+                  </p>
+                  <br>
+              </div>
+              <div>
+                <img src="images/Clubs-Societies.jpg" class= "club-socities" style="width: 650px;height: 400px;border-radius: 15%; ">
+                  <br><br><br>
+              </div>
+          </section>
+        </div>
 
     <!--Footer-->
     <div class="container">
