@@ -1,14 +1,11 @@
 <?php
-    $servername = "localhost";
-    $user = "root";
-    $password = "";
-    $dbase = "sdp";
-    //establish connection to mysql server
-    $conn = mysqli_connect($servername,$user,$password,$dbase);
-    
+$servername = "localhost";
+$user = "root";
+$password = "";
+$dbase = "sdp";
+//establish connection to mysql server
+$conn = mysqli_connect($servername,$user,$password,$dbase);
 
-    session_start();
-    
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Macondo' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <style>
       h1.a {
@@ -45,7 +43,7 @@
     <!-- Menu-->
     <ul class="nav nav-tabs justify-content-end" style="font-family: Bakbak One,san-serif; color: #fd7e14">
         <li class="nav-item">
-          <a class="nav-link" style="color:#737373" aria-current="page" href="index.php">HOME</a>
+          <a class="nav-link" style="color:#737373" href="index.php">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " style="color:#737373" href="about.php">ABOUT US</a>
@@ -70,46 +68,54 @@
           <a class="nav-link" style="color:#737373" href="contact.php">CONTACT US</a>
         </li>
         
-        <li class="nav-item ">
-
-          <?php 
-              if (isset($_SESSION['username'])) { ?>
-
-              <ul class="nav nav-pills ">
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
-              <?php 
-              if(isset($_SESSION['username'])) {
-                  echo $_SESSION['fullname'];
-              }else {
-                  echo "";
-              } 
-              ?>
-              </a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
-              </ul>
-              </li>
-          </ul>
-          <?php 
-              } 
-              else { ?>
-
-              <button onclick="location.href='login.php'" type="button" class="btn btn-primary">Login</button>
-
-          <?php 
-          } 
-          ?>
-      </li>
+        <li class="nav-item disable">
+            <a class="nav-link disabled" aria-current="page">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </li>
       </ul>
     </div>
     </div>
     
-    <!-- Content here -->
     <br><br>
+    <!--Forgot Password-->
+    <section>
+        <div class="container padding-bottom-3x mb-2 mt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="forgot">
+                        <h2>Forgot Your Password?</h2>
+                        <p>Change your password in three easy steps. This will help you to secure your password!</p>
+                        <ol class="list-unstyled">
+                            <li><span class="text-primary text-medium">1. </span> Enter your email address below.</li>
+                            <li><span class="text-primary text-medium">2. </span> Our system will send you a temporary link.</li>
+                            <li><span class="text-primary text-medium">3. </span> Use the link to reset your password.</li>
+                        </ol>
+                    </div>
+                    <form class="card mt-4" id="i">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="email-for-pass">Enter your email address</label>
+                                <input class="form-control" type="email" id="email-for-pass" required="">
+                                <small class="form-text text-muted ">Enter the email address you used during the registration on Radiant Club & Society. Then we'll email a link to this address.</small> </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-outline-warning text-black" type="submit" onclick="alertpassword()">Get New Password</button>
+                            <button class="btn btn-outline-primary text-black" type="submit" onclick="location.href='login.php'">Back to Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            var form = document.getElementById('i');
 
+            function alertpassword() {
+                if (form.checkValidity()) {
+                    alert("Request Submitted Successfully! Please Check Your Email Inbox.");
+                }
+            }
+        </script>
+    </section>
+    <br><br>
 
 
     <!--Footer-->

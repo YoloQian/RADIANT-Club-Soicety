@@ -30,6 +30,51 @@
       font-size: 25px;
       }
 
+      /* Context of club and society */
+      h1 {
+        color: #e6b800;
+        text-align: center;
+      }
+
+      h5 {
+        color: black;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+      /* clubs grid container */
+      .grid-container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      /* clubs content box */
+      .clubs {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+
+      .clubs img{
+        width: 50%;
+        min-height: 120px;
+        max-height: 150px;
+      }
+
+      .clubs button:hover {
+        opacity: 0.7;
+      }
     </style>
 </head>
 <body>
@@ -51,16 +96,14 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="#">COURSE-BASED & ACADEMIC</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">SPERFORMING & CREATIVE</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">RECREATION, SPORTS & GAMES</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">COMMUNITY CENTRIC & VOLUNTARY</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=performing and creative">PERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
           </ul>
         </li>
         </div>
@@ -107,8 +150,72 @@
     </div>
     </div>
     
-    <!-- Content here -->
-    <br><br>
+    <!-- Welcome -->
+
+    <div class="container py-5">
+      <div class="row pt-md-5 pb-lg-5 justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
+          <h1>
+            <span class="fw">Welcome to <b>Club & Society</b><br><br></span>
+          </h1>
+          <h5>
+            <p class="fw-light" style="text-align: center;">
+              We believe a student's life is made out of 50% study and 50% fun. That's why we offer a host of clubs and societies that you're welcomed to be a part of. 
+              Dabble in new experiences, spark creativity and passion, get to know a diverse range of people and have fun - all at the same time! Sounds good already? 
+              <br>Scroll down to discover all the clubs and societies available here.
+            </p>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <h1 style="text-decoration: underline;">List of Club & Societies</h1>
+
+    <?php
+      $id=$_GET["id"];
+      if($id=='course-based and academic'){
+        $query = "SELECT * FROM clubs WHERE category='Course-based & Academic' ";
+      }else if($id=='general interest'){
+        $query = "SELECT * FROM clubs WHERE category='General Interest' ";
+      }else if($id=='performing and creative'){
+        $query = "SELECT * FROM clubs WHERE category='performing & Creative' ";
+      }else if($id=='recreation, sport and games'){
+        $query = "SELECT * FROM clubs WHERE category='Recreation, Sport & Games' ";
+      }else if($id=='community centric and voluntary'){
+        $query = "SELECT * FROM clubs WHERE category='Community Centric & Voluntary' ";
+      }else if($id=='cultural and international communities'){
+        $query = "SELECT * FROM clubs WHERE category='Cultural & International Communities' ";
+      }else {
+          $query = "SELECT * FROM clubs ";
+      }
+      ?>
+
+
+    <div class="grid-container" style='margin: 30px 80px;'>
+        <?php 
+        $result = mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($result)){
+        ?>
+        <div class='grid-item'>
+          <div class="clubs">
+            <br>
+            <h2><?php echo $row["cname"]; ?></h2>
+            <img src="<?php echo 'clubsimages/' .$row["cimage"]; ?>">
+            <hr>
+            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
+            <hr>
+          </div>
+        </div>
+        <?php
+          }
+        ?>
+    </div> 
+
+     
+
+     
+
+
 
 
 
@@ -124,7 +231,7 @@
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link px-2 text-muted">About Us</a></li>
-          <li class="nav-item"><a href="clubs.php" class="nav-link px-2 text-muted">Club & Society</a></li>
+          <li class="nav-item"><a href="clubs.php?id=" class="nav-link px-2 text-muted">Club & Society</a></li>
           <li class="nav-item"><a href="events.php" class="nav-link px-2 text-muted">Events</a></li>
           <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>

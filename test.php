@@ -8,7 +8,6 @@
     
 
     session_start();
-    
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +30,32 @@
       font-size: 25px;
       }
 
+      .clubs {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+
+      .clubs img{
+        width: 100%;
+      }
+
+      .clubs button:hover {
+        opacity: 0.7;
+      }
+
+      .column {
+        float: left;
+        width: 40%;
+        padding: 0 10px;
+      }
+      .content {
+      max-width: 1300px;
+      margin: auto;
+      padding: 10px;
+      }
     </style>
 </head>
 <body>
@@ -45,14 +70,14 @@
     <!-- Menu-->
     <ul class="nav nav-tabs justify-content-end" style="font-family: Bakbak One,san-serif; color: #fd7e14">
         <li class="nav-item">
-          <a class="nav-link" style="color:#737373" aria-current="page" href="index.php">HOME</a>
+          <a class="nav-link" style="color:#737373" href="index.php">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " style="color:#737373" href="about.php">ABOUT US</a>
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
@@ -71,11 +96,10 @@
         </li>
         
         <li class="nav-item ">
-
-          <?php 
+        <?php 
               if (isset($_SESSION['username'])) { ?>
 
-              <ul class="nav nav-pills ">
+              <ul class="nav nav-pills">
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
               <?php 
@@ -108,7 +132,22 @@
     </div>
     
     <!-- Content here -->
-    <br><br>
+    <div class="content">
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        </div>
+    </div>
+
+     
+
+     
+
+
 
 
 

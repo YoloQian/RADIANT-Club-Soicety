@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Macondo' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <style>
       h1.a {
@@ -156,16 +157,14 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="#">COURSE-BASED & ACADEMIC</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">SPERFORMING & CREATIVE</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">RECREATION, SPORTS & GAMES</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">COMMUNITY CENTRIC & VOLUNTARY</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=performing and creative">PERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
           </ul>
         </li>
         </div>
@@ -185,16 +184,23 @@
     
     <br><br>
     <!--Sign In-->
+    <div class="content">
     <section class="centerblocktext fontsignin">
-        <div class="signinbox col-sm-12">
+        <div class="col-sm-12">
             <form class="form-signin" method="POST" action="">
-                <img class="mb-4 img" src="images\radiant_bg.png" alt="" width="130" height="180">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative mx-auto" style="width:500px">
+              <div class="col-auto d-none d-lg-block mx-auto">
+                  <img src="images/radiant_whitebg.jpg" width="200" height="200">
+              </div>
+                <div class="col p-4 d-flex flex-column position-static text-center" style="font-family: Macondo,san-serif;">
+                  <h1 class="mb-0" style=" font-size: 2.5rem">RADIANT <br>Club & Society</h1>
+                </div>
+            </div>
 
                 <br>
                 <h1 class="h3 mb-3 font-weight-normal">Sign In:</h1>
                 <hr style="height:2px">
 
-                <br>
                 <label for="inputUname" class="sr-only">Username:</label>
                 <br>
 
@@ -212,6 +218,7 @@
                 </div>
 
                 <div class="col text-center">
+                  <br><hr>
                     <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Log in</button>
                     <br><br>
                 </div>
@@ -229,6 +236,8 @@
         </div>
         <br><br>
     </section>
+    </div>
+    <br>
 
 
     <!--Footer-->
@@ -243,7 +252,7 @@
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link px-2 text-muted">About Us</a></li>
-          <li class="nav-item"><a href="clubs.php" class="nav-link px-2 text-muted">Club & Society</a></li>
+          <li class="nav-item"><a href="clubs.php?id=" class="nav-link px-2 text-muted">Club & Society</a></li>
           <li class="nav-item"><a href="events.php" class="nav-link px-2 text-muted">Events</a></li>
           <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>
