@@ -30,6 +30,34 @@
       font-size: 25px;
       }
 
+      /* Context of club and society */
+      h1 {
+        color: #e6b800;
+        text-align: center;
+      }
+
+      h5 {
+        color: black;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+      /* clubs grid container */
+      .grid-container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      /* clubs content box */
       .clubs {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: 300px;
@@ -39,17 +67,13 @@
       }
 
       .clubs img{
-        width: 100%;
+        width: 50%;
+        min-height: 120px;
+        max-height: 150px;
       }
 
       .clubs button:hover {
         opacity: 0.7;
-      }
-
-      .column {
-        float: left;
-        width: 40%;
-        padding: 0 10px;
       }
     </style>
 </head>
@@ -72,13 +96,14 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id=All'" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=Club">CLUBS</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=Society">SOCIETY</a></li>
-            
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=sperforming and creative">SPERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
           </ul>
         </li>
         </div>
@@ -126,21 +151,50 @@
     </div>
     
     <!-- Content here -->
+
+    <div class="container py-5">
+      <div class="row pt-md-5 pb-lg-5 justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
+          <h1>
+            <span class="fw-light">Welcome to <b>Club & Society</b><br></span>
+          </h1>
+          <h5>
+            <span class="fw-light">
+              We believe a student's life is made out of 50% study and 50% fun. That's why we offer a host of clubs and societies that you're welcomed to be a part of. Dabble in new experiences, spark creativity and passion, get to know a diverse range of people and have fun - all at the same time! Sounds good already? Scroll down to discover all the clubs and societies available here.
+            </span>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <h1 style="text-decoration: underline;">List of Club & Societies</h1>
+
     <?php
-$id=$_GET["id"];
-if($id=='Club'){
-    $query = "SELECT * FROM clubs WHERE category='Club' ";
-}else if($id=='Society'){
-    $query = "SELECT * FROM clubs WHERE category='Society' ";
-}else {
-    $query = "SELECT * FROM clubs ";
-}
-    $result = mysqli_query($conn,$query);
-    while ($row = mysqli_fetch_array($result)) {
-?>
-<div class="row">
-      <div class="column">
-        <form method="post">
+      $id=$_GET["id"];
+      if($id=='course-based and academic'){
+        $query = "SELECT * FROM clubs WHERE category='Course-based & Academic' ";
+      }else if($id=='general interest'){
+        $query = "SELECT * FROM clubs WHERE category='General Interest' ";
+      }else if($id=='sperforming and creative'){
+        $query = "SELECT * FROM clubs WHERE category='Sperforming & Creative' ";
+      }else if($id=='recreation, sport and games'){
+        $query = "SELECT * FROM clubs WHERE category='Recreation, Sport & Games' ";
+      }else if($id=='community centric and voluntary'){
+        $query = "SELECT * FROM clubs WHERE category='Community Centric & Voluntary' ";
+      }else if($id=='cultural and international communities'){
+        $query = "SELECT * FROM clubs WHERE category='Cultural & International Communities' ";
+      }else {
+          $query = "SELECT * FROM clubs ";
+      }
+      ?>
+
+
+    <div class="grid-container" style='margin: 30px 80px;'>
+        <?php 
+        $result = mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($result)){
+        ?>
+        <div class='grid-item'>
           <div class="clubs">
             <br>
             <h2><?php echo $row["cname"]; ?></h2>
@@ -149,12 +203,11 @@ if($id=='Club'){
             <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
             <hr>
           </div>
-        </form>
-      </div>
-    </div>    
-    <?php
-      }
-    ?>   
+        </div>
+        <?php
+          }
+        ?>
+    </div> 
 
      
 
