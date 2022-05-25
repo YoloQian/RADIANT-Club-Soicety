@@ -100,7 +100,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=sperforming and creative">SPERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=performing and creative">PERFORMING & CREATIVE</a></li>
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
             <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
@@ -150,18 +150,20 @@
     </div>
     </div>
     
-    <!-- Content here -->
+    <!-- Welcome -->
 
     <div class="container py-5">
       <div class="row pt-md-5 pb-lg-5 justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
           <h1>
-            <span class="fw-light">Welcome to <b>Club & Society</b><br></span>
+            <span class="fw">Welcome to <b>Club & Society</b><br><br></span>
           </h1>
           <h5>
-            <span class="fw-light">
-              We believe a student's life is made out of 50% study and 50% fun. That's why we offer a host of clubs and societies that you're welcomed to be a part of. Dabble in new experiences, spark creativity and passion, get to know a diverse range of people and have fun - all at the same time! Sounds good already? Scroll down to discover all the clubs and societies available here.
-            </span>
+            <p class="fw-light" style="text-align: center;">
+              We believe a student's life is made out of 50% study and 50% fun. That's why we offer a host of clubs and societies that you're welcomed to be a part of. 
+              Dabble in new experiences, spark creativity and passion, get to know a diverse range of people and have fun - all at the same time! Sounds good already? 
+              <br>Scroll down to discover all the clubs and societies available here.
+            </p>
           </h5>
         </div>
       </div>
@@ -175,8 +177,8 @@
         $query = "SELECT * FROM clubs WHERE category='Course-based & Academic' ";
       }else if($id=='general interest'){
         $query = "SELECT * FROM clubs WHERE category='General Interest' ";
-      }else if($id=='sperforming and creative'){
-        $query = "SELECT * FROM clubs WHERE category='Sperforming & Creative' ";
+      }else if($id=='performing and creative'){
+        $query = "SELECT * FROM clubs WHERE category='performing & Creative' ";
       }else if($id=='recreation, sport and games'){
         $query = "SELECT * FROM clubs WHERE category='Recreation, Sport & Games' ";
       }else if($id=='community centric and voluntary'){
