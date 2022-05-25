@@ -165,10 +165,10 @@
       <img src="images/Clubs-Societies_banner.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title text-center">Clubs & Society provide students with many positive experiences that help them to become well-rounded individuals who are ready for world. 
-          Joining a club can be one of the best decisions that a student ever made.</h5>
+          <br>Joining a club can be one of the best decisions that a student ever made.</h5>
           <br>
           <p class="card-text text-end " style="font-weight: bold;">Check Our Clubs Now</p>
-        <a href="clubs.php" class="btn btn-primary float-end" style="width:100px;font-weight: bold;">Go </a>
+        <a href="clubs.php?id=" class="btn btn-primary float-end" style="width:100px;font-weight: bold;">Go </a>
       </div>
     </div>
     <br><br>
@@ -308,7 +308,7 @@
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link px-2 text-muted">About Us</a></li>
-          <li class="nav-item"><a href="clubs.php" class="nav-link px-2 text-muted">Club & Society</a></li>
+          <li class="nav-item"><a href="clubs.php?id=" class="nav-link px-2 text-muted">Club & Society</a></li>
           <li class="nav-item"><a href="events.php" class="nav-link px-2 text-muted">Events</a></li>
           <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>
