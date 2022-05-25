@@ -46,7 +46,18 @@
       left: 50%;
       transform: translate(-50%, -50%);
       }
-
+      
+      .containerbackground {
+            margin: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transform: rotate(300deg);
+            -webkit-transform: rotate(300deg);
+            color: #c6afaf;
+        }
     </style>
 </head>
 <body>
@@ -68,16 +79,14 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="#">COURSE-BASED & ACADEMIC</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">SPERFORMING & CREATIVE</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">RECREATION, SPORTS & GAMES</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">COMMUNITY CENTRIC & VOLUNTARY</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=sperforming and creative">SPERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
           </ul>
         </li>
         </div>
@@ -148,6 +157,68 @@
           <img src="images/radiant_whitebg.jpg" width="400" height="400">
       </div>
     </div>
+
+    <!--Category-->
+    <div class="container">
+        <div class="containerbackground">
+            Background Text
+        </div>
+        <p>Foreground text</p>
+        <p>Welcome to GeeksforGeeks</p>
+        <p>Start Learning</p>
+    </div>
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/academic.png" class="img-thumbnail" alt="...">
+          <h4>COURSE-BASED & ACADEMIC</h4>
+          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+          <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/interest.png" class="img-thumbnail" alt="...">
+          <h4>GENERAL INTEREST</h4>
+          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+          <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/performing.png" class="img-thumbnail" alt="...">
+          <h4>SPERFORMING & CREATIVE</h4>
+          <p>And lastly this, the third column of representative placeholder content.</p>
+          <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/recreation.png" class="img-thumbnail" alt="...">
+          <h4>RECREATION, SPORTS & GAMES</h4>
+          <p>And lastly this, the third column of representative placeholder content.</p>
+          <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/voluntary.png" class="img-thumbnail" alt="...">
+          <h4>COMMUNITY CENTRIC & VOLUNTARY</h4>
+          <p>And lastly this, the third column of representative placeholder content.</p>
+          <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/international.png" class="img-thumbnail" alt="...">
+          <h4>CULTURAL & INTERNATIONAL COMMUNITIES</h4>
+          <p>And lastly this, the third column of representative placeholder content.</p>
+          <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+      </div><!-- /.row -->
+
+    </div>
+    <br><br>
+
 
     <!-- Recent Event -->
     <div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto content" style="font-family: Koulen,san-serif;" data-bs-ride="carousel">

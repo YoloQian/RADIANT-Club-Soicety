@@ -127,34 +127,35 @@
     
     <!-- Content here -->
     <?php
-$id=$_GET["id"];
-if($id=='Club'){
-    $query = "SELECT * FROM clubs WHERE category='Club' ";
-}else if($id=='Society'){
-    $query = "SELECT * FROM clubs WHERE category='Society' ";
-}else {
-    $query = "SELECT * FROM clubs ";
-}
-    $result = mysqli_query($conn,$query);
-    while ($row = mysqli_fetch_array($result)) {
-?>
-<div class="row">
-      <div class="column">
-        <form method="post">
-          <div class="clubs">
-            <br>
-            <h2><?php echo $row["cname"]; ?></h2>
-            <img src="<?php echo 'clubsimages/' .$row["cimage"]; ?>">
-            <hr>
-            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
-            <hr>
-          </div>
-        </form>
-      </div>
-    </div>    
-    <?php
+      $id=$_GET["id"];
+      if($id=='Club'){
+          $query = "SELECT * FROM clubs WHERE category='Club' ";
+      }else if($id=='Society'){
+          $query = "SELECT * FROM clubs WHERE category='Society' ";
+      }else {
+          $query = "SELECT * FROM clubs ";
       }
-    ?>   
+          $result = mysqli_query($conn,$query);
+          while ($row = mysqli_fetch_array($result)) {
+      ?>
+      <div class="row">
+            <div class="column">
+              <form method="post">
+                <div class="clubs">
+                  <br>
+                  <h2><?php echo $row["cname"]; ?></h2>
+                  <img src="<?php echo 'clubsimages/' .$row["cimage"]; ?>">
+                  <hr>
+                  <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
+                  <hr>
+                </div>
+              </form>
+            </div>
+          </div>
+              
+          <?php
+            }
+          ?>   
 
      
 
