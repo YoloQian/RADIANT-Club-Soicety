@@ -124,13 +124,9 @@
             <img src="images/radiant.png" class= "radiantlogo" style="width: 650px;height: 400px;border-radius: 15%; ">
                 <div class="font-monospace" style="display: flex;flex-direction: column;">
                     <br><br>
-                    <h1 class="text-uppercase" style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem;"><b>Who Are We?</b></h1>
-                    <br>
-                    <p style="margin: 1rem;font-size: 1.3rem;">We are RADIANT Delivery Service which provides delivery services via international or local. Radiant Delivery Services was born to make on-demand delivery possible for everyone at the touch of a button. With just a simple to use website,
-                        users are able to gain access to wide fleet of suitable delivery vehicles helmed by professional drivers.Simply input the drop out location and choose the type of delivery method u need and we will take it up from there to ensure
-                        your package is delivered to its desired destination safely.
+                    <h1 class="text-uppercase" style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem;"><b>What We Provide</b></h1>
+                    <p style="margin: 1rem;font-size: 1.3rem;">We are RADIANT CLUB AND Society which provides students to join various type of bodies that we provide. Students who joined a club is able to participate in several activities and event. Furthermore, student who bring achievement to their respective club/society is able to be promoted into committees of the club.<br><br> NEW MEMBERS ARE ALWAYS WELCOME!!!
                     </p>
-                    <br><br>
                     <br>
                 </div>
             </section>
@@ -143,8 +139,7 @@
               <div class="font-monospace " style="display: flex;flex-direction: column;align-items: center;text-align: center; ">
                   <br><br>
                   <h1 class="text-uppercase " style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem; "><b>What is Our Goal?</b></h1>
-                  <br>
-                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure delivering package made convenient to everyone everywhere be it at a park, office, of the comfort of your home, anywhere with just a few clicks away. We aim to strive as one of the top Asia Most Reliable Delivery Services to ensure our services are reliable and trusted.
+                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure students are able to take part in clubs/society without the needs to register physically, this makes it convenience especially with the current outbreak of Covid-19 which prevents students from attending physically. Besides, we strive to let students to experiences a different environment other than studying during the pandemic and till the end of pandemic.
                   </p>
                   <br>
               </div>
