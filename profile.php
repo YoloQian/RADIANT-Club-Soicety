@@ -10,10 +10,12 @@
     $result = mysqli_query($conn, $sql_query);
     while ($row = mysqli_fetch_array($result)) {
 
+    //Change Password
     if(isset($_POST['submit'])){
       $idnum =  $_POST['idnum'];
       $old_password = $_POST['old_password'];
       $txtpassword = $_POST['txtPassword'];
+      
 
       $check_password = mysqli_query($conn, "SELECT password FROM students where sid = '$idnum' and password = '$old_password'");
       if(mysqli_num_rows($check_password) > 0){
@@ -29,8 +31,35 @@
           
         }
       }
+
+    //Update Photo
+    if(isset($_POST['update_submit'])){
+        $idnum =  $_POST['idnum'];
+        $name = $_POST['name'];
+    
+        $filename = $_FILES["uploadfile"]["name"];
+        $tempname = $_FILES["uploadfile"]["tmp_name"];
+            $folder = "productimage/" . $filename;
+    
+        $code = $_POST['txtcode'];
+    
+    
+        $query = "UPDATE `students` 
+        SET `simage`='$filename' WHERE sid=$idnum";
+        
+        mysqli_query($conn, $query);
+    
+        if (move_uploaded_file($tempname, $folder)) {
+            $msg = "Product image uploaded successfully";
+        }else {
+            $msg = "Failed to uplaod product image";
+        }
+    
+        mysqli_close($conn);
+        header("location: profile.php");
     }
       
+}
      
 
     session_start();
@@ -153,11 +182,26 @@
     </div>
     
     <!--Profile-->
-    <div class="container rounded bg-white mt-5 mb-5 content">
-    <div class="row d-flex justify-content-center" style="width: 1300px;">
+    <div class="container rounded bg-white mt-5 mb-5 content" style="">
+    <div class="row d-flex justify-content-center" style="width: 1300px; ">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img src="<?php echo 'studentsimages/' .$r["simage"]; ?>">
+            <!-- Update Photo-->
+            <form method="post">
+            <?php   
+                $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
+                $result = mysqli_query($conn, $sql_query);
+                while ($row = mysqli_fetch_array($result)) {
+            
+            ?>
+                
+                <img height='150'; width='150' src="<?php echo 'studentsimages/' .$row['simage']; ?>">
+                <br>
+                <input type="file" id="uploadfile" name="uploadfile" 
+                        value= "<?php echo "<img height='150'; width='150'; src=" . 'studentsimages/' .$row['simage']. ">" ?>" />
+                <input type="submit" name="update_submit" value="Update Record" />
+                
+            </form>
                 
             <span class="font-weight-bold" style="font-size: 1.3rem;">
                 <br>
@@ -186,6 +230,7 @@
             </span>
             
             <?php 
+                }
              }
             }
             ?>
@@ -280,6 +325,7 @@
                 <div class="mt-3 text-center">
                     <button class="btn btn-primary profile-button" name="submit" type="submit">Update Password</button>
                 </div>
+    </div>
 
                 <script>
                     /* Check Password matching and display*/ 

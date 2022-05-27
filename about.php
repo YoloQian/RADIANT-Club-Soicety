@@ -139,7 +139,7 @@
               <div class="font-monospace " style="display: flex;flex-direction: column;align-items: center;text-align: center; ">
                   <br><br>
                   <h1 class="text-uppercase " style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem; "><b>What is Our Goal?</b></h1>
-                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure students are able to take part in Clubs & Society without the needs to register physically, this makes it convenience especially with the current outbreak of Covid-19 which prevents students from attending physically. Besides, we strive to let students to experiences a different environment other than studying during the pandemic and till the end of pandemic.
+                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure students are able to take part in Clubs & Societies without the needs to register physically, this makes it convenience especially with the current outbreak of Covid-19 which prevents students from attending physically. Besides, we strive to let students to experiences a different environment other than studying during the pandemic and till the end of pandemic.
                   </p>
                   <br>
               </div>
