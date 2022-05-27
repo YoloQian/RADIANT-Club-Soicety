@@ -131,9 +131,9 @@ if(!isset($_SESSION['username'])){
     <form class="needs-validation" novalidate="" action="" id="a" method="post">
     <?php foreach($result as $r){ ?>
         <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="<?php echo 'clubsimages/' .$r["cimage"]; ?>" alt="" width="100" height="100">
+        <img class="d-block mx-auto mb-4" src="<?php echo 'clubsimages/' .$r["cimage"]; ?>" alt="" width="125" height="125">
         <h2>Application Form</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <p class="lead">Give us your reason or your interest in why would you like to join our club!!!</p>
         </div>
 
         
