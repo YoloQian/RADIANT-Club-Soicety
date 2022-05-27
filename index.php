@@ -294,7 +294,7 @@
   <br><br>
   <div class="card mx-auto content" style="width:50%; font-family: Koulen,san-serif;">
   <br>
-  <img src="images/helpdesk.webp" class="card-img-top mx-auto" style="" alt="...">
+  <img src="images/helpdesk.webp" class="card-img-top mx-auto" alt="...">
   <div class="card-body mx-auto text-center">
     <h1 class="card-title">Need Any Help?</h1>
     <br>

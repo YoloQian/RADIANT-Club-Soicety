@@ -16,11 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-<<<<<<< HEAD
     <title>RADIANT Admin</title>
-=======
-    <title>Admin - RADIANT</title>
->>>>>>> 3918228165f3d60a8bbc7280eed3186239d261b7
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
