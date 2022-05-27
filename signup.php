@@ -161,7 +161,6 @@ if(isset($_POST['submit'])){
                                     <span id='message'></span>
                                 </div>
 
-                                <!--New Details from here-->
                                 <div class="form-group form-primary"> 
                                     <input type="text" class="form-control" required="" autofocus="" name="txtFname" value="" placeholder="First Name"> 
                                 </div>
