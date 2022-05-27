@@ -79,16 +79,14 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="#">COURSE-BASED & ACADEMIC</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">SPERFORMING & CREATIVE</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">RECREATION, SPORTS & GAMES</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">COMMUNITY CENTRIC & VOLUNTARY</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=performing and creative">PERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
           </ul>
         </li>
         </div>
@@ -268,7 +266,7 @@
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link px-2 text-muted">About Us</a></li>
-          <li class="nav-item"><a href="clubs.php" class="nav-link px-2 text-muted">Club & Society</a></li>
+          <li class="nav-item"><a href="clubs.php?id=" class="nav-link px-2 text-muted">Club & Society</a></li>
           <li class="nav-item"><a href="events.php" class="nav-link px-2 text-muted">Events</a></li>
           <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>

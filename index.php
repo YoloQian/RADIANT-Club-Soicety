@@ -46,7 +46,18 @@
       left: 50%;
       transform: translate(-50%, -50%);
       }
-
+      
+      .containerbackground {
+            margin: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transform: rotate(300deg);
+            -webkit-transform: rotate(300deg);
+            color: #c6afaf;
+        }
     </style>
 </head>
 <body>
@@ -68,16 +79,14 @@
         </li>
         <div class="dropdown">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#737373" role="button" aria-expanded="false">Club & Society</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="color:#737373" href="#">COURSE-BASED & ACADEMIC</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">GENERAL INTEREST</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">SPERFORMING & CREATIVE</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">RECREATION, SPORTS & GAMES</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">COMMUNITY CENTRIC & VOLUNTARY</a></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color:#737373" href="#">Separated link</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=performing and creative">PERFORMING & CREATIVE</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=recreation, sport and games">RECREATION, SPORTS & GAMES</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=community centric and voluntary">COMMUNITY CENTRIC & VOLUNTARY</a></li>
+            <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=cultural and international communities">CULTURAL & INTERNATIONAL COMMUNITIES</a></li>
           </ul>
         </li>
         </div>
@@ -128,15 +137,15 @@
     <!-- Explore Club -->
     <div style="background-color: #FFFFED;">
       <div class="p-4 p-md-5 mb-4 rounded text-center content" style="background:url('images/clubs-and-socities-page-banner.png') no-repeat; background-size:contain;background-size: 100% 60%;">
-          <h1 class="display-3 fst-italic" style="font-family: Koulen,san-serif; margin-top:300px; font-weight: bold;  text-shadow: 5px 5px 5px #4DC7C7;">
+          <h1 class="display-3 fst-italic" style="font-family: Koulen,san-serif; margin-top:300px;  text-shadow: 5px 5px 5px #4DC7C7;">
           Wider Range of Social, <br>Cultural and Education Activities<br>To choose from</h1>
-          <button onclick="location.href='clubs.php'" type="button" class="btn btn-warning btn-lg " style="border-radius: 10%; margin-top:25px; font-weight: bold; ">
+          <button onclick="location.href='#Clubs-Category'" type="button" class="btn btn-warning btn-lg " style="border-radius: 10%; margin-top:25px; font-weight: bold;">
           Explore &nbsp;<img src="images/right-arrow.png" ></button>
       </div>
     </div>
 
     <!--Introduce Radiant-->
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative mx-auto content" style="">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative mx-auto content" style="background-color: #ffff99">
         <div class="col p-4 d-flex flex-column position-static text-center" style="font-family: Koulen,san-serif;">
           <h1 class="mb-0" style=" font-size: 6rem">RADIANT Club & Society</h1>
           <br>
@@ -148,6 +157,81 @@
           <img src="images/radiant_whitebg.jpg" width="400" height="400">
       </div>
     </div>
+
+    <!--Category-->
+    <section id="Clubs-Category" class="content border border-4 rounded-3">
+    <br>
+    <div class="card mx-auto" style="width: 60%">
+      <img src="images/Clubs-Societies_banner.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">Clubs & Society provide students with many positive experiences that help them to become well-rounded individuals who are ready for world. 
+          <br>Joining a club can be one of the best decisions that a student ever made.</h5>
+          <br>
+          <p class="card-text text-end " style="font-weight: bold;">Check Our Clubs Now</p>
+        <a href="clubs.php?id=" class="btn btn-primary float-end" style="width:100px;font-weight: bold;">Go </a>
+      </div>
+    </div>
+    <br><br>
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/academic.png" class="img-thumbnail" alt="...">
+          <h4>COURSE-BASED & ACADEMIC</h4>
+          <p>These clubs provide a platform for junior and senior students to know each other better and establish a strong bond in developing useful peer support in overcoming challenges faced during their studies.</p><br>
+          <p><a class="btn btn-secondary" href="clubs.php?id=course-based and academic">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/interest.png" class="img-thumbnail" alt="...">
+          <h4>GENERAL INTEREST</h4>
+          <p>General Interest clubs give students with a shared interest the opportunity to engage with one another. Students with similar interests in a particular area to collectively and informally pursue that interest.</p><br>
+          <p><a class="btn btn-secondary" href="clubs.php?id=general interest">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        
+        <div class="col-lg-4 text-center">
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/performing.png" class="img-thumbnail" alt="...">
+          <h4>PERFORMING & CREATIVE</h4>
+          <p>Students encounter the creative and performing arts through broads disciplines: Music, Dance, Visual Art, Drama etc. Each contributes to their holistic development, including the participation of the mind, body and spirit, along with the use of the mind. </p>
+          <p><a class="btn btn-secondary" href="clubs.php?id=performing and creative">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+          
+        <div class="col-lg-4 text-center">
+          <br>
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/recreation.png" class="img-thumbnail" alt="...">
+          <h4>RECREATION, SPORTS & GAMES</h4>
+          <br>
+          <p>Provides a platform for students to lead a balanced lifestyle, gain new experiences, competition using video games, 
+            friendships through various Recreation clubs, Sporting clubs, Games clubs and activities. </p><br><br>
+          <p><a class="btn btn-secondary" href="clubs.php?id=recreation, sport and games">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <br>
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/voluntary.png" class="img-thumbnail" alt="...">
+          <h4>COMMUNITY CENTRIC & VOLUNTARY</h4>
+          <p>A platform to enable student volunteers to give back to society through service encompassing education, empowerment and healthcare.Through these clubs, 
+            students have the opportunity to work together to extend a helping hand to those in need and improve the quality of lives of the less fortunate.</p>
+          <p><a class="btn btn-secondary" href="clubs.php?id=community centric and voluntary">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+        <br>
+        <img class="bd-placeholder-img rounded" width="140" height="140" src="images/international.png" class="img-thumbnail" alt="...">
+          <h4>CULTURAL & INTERNATIONAL COMMUNITIES</h4>
+          <p>These clubs dedicated to spreading awareness, sharing, understanding culture relationships around the world, its people, diversity, values. Activities 
+            and events to explore international, cultural, historical, and socio-economic affairs and bring together people of all backgrounds and nationalities.
+          </p>
+          <p><a class="btn btn-secondary" href="clubs.php?id=cultural and international communities">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+      </div><!-- /.row -->
+
+    </div>
+    </section>
+    <br><br>
+
 
     <!-- Recent Event -->
     <div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto content" style="font-family: Koulen,san-serif;" data-bs-ride="carousel">
@@ -224,7 +308,7 @@
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link px-2 text-muted">About Us</a></li>
-          <li class="nav-item"><a href="clubs.php" class="nav-link px-2 text-muted">Club & Society</a></li>
+          <li class="nav-item"><a href="clubs.php?id=" class="nav-link px-2 text-muted">Club & Society</a></li>
           <li class="nav-item"><a href="events.php" class="nav-link px-2 text-muted">Events</a></li>
           <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-muted">Contact Us</a></li>
         </ul>
