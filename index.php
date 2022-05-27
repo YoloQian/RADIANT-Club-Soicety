@@ -98,28 +98,34 @@
         </li>
         
         <li class="nav-item ">
-
-          <?php 
+ <!--admin button -->
+          <?php
               if (isset($_SESSION['username'])) { ?>
 
-              <ul class="nav nav-pills ">
+            <ul class="nav nav-pills ">
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
-              <?php 
-              if(isset($_SESSION['username'])) {
-                  echo $_SESSION['fullname'];
-              }else {
-                  echo "";
-              } 
-              ?>
-              </a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
+                <?php 
+                if(isset($_SESSION['username'])) {
+                    echo $_SESSION['fullname'];
+                }else {
+                    echo "";
+                }
+                ?>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                    <!-- admin only see -->
+                    <?php
+                    if($_SESSION['fullname'] == 'admin'){
+                    echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Admin</a></li>";
+                    }
+                    ?> <!-- end here-->
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
+                </ul>
+                </li>
               </ul>
-              </li>
-          </ul>
           <?php 
               } 
               else { ?>
