@@ -19,7 +19,9 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <?php foreach($result as $r){ ?>
       <title><?php echo $r["cname"]; ?> - RADIANT</title>
+      <?php } ?>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -73,7 +75,7 @@
           </li>
           <div class="dropdown">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active"  aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php'" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
+            <a class="nav-link dropdown-toggle active"  aria-current="page" data-bs-toggle="dropdown" ondblclick="location.href='clubs.php?id='" style="color:#ffd11a" role="button" aria-expanded="false">Club & Society</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=course-based and academic">COURSE-BASED & ACADEMIC</a></li>
               <li><a class="dropdown-item" style="color:#737373" href="clubs.php?id=general interest">GENERAL INTEREST</a></li>
@@ -201,7 +203,7 @@
           <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="about.php" class="nav-link px-2 text-muted">About Us</a></li>
-            <li class="nav-item"><a href="clubs.php" class="nav-link px-2 text-muted">Club & Society</a></li>
+            <li class="nav-item"><a href="clubs.php?id=" class="nav-link px-2 text-muted">Club & Society</a></li>
             <li class="nav-item"><a href="events.php" class="nav-link px-2 text-muted">Events</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link px-2 text-muted">Contact Us</a></li>
           </ul>
