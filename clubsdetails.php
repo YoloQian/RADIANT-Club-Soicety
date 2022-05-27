@@ -150,9 +150,8 @@
                     <span class="d-inline-block h5 text-light fw-light mx-2 opacity-70" style="text-align: justify; text-justify: inter-word; ">
                       <?php echo $r['content']; ?>
                     </span>
-                  <button onclick="location.href='#'" class="btn btn-warning btn-lg " style="border-radius: 10%; margin-top:25px; font-weight: bold; ">
-                    JOIN US &nbsp;<img src="images/right-arrow.png" >
-                  </button>
+                  <input type="button" class="btn btn-warning btn-lg" value="JOIN US"  style="border-radius: 10%; margin-top:25px; font-weight: bold;"
+                   onClick='window.location.href="joinclub.php?cid=<?php echo $r["cid"];?>"'>
                 </div>
               </div>
             </div>

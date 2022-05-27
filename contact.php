@@ -143,7 +143,7 @@
     <br>
   
 
-    <!--OGet In Touch-->
+    <!--Get In Touch-->
     <br>
         <div class="content messagecontainer" style=" font-family: Koulen,san-serif; font-size:15px; border-style: dashed; border-radius: 4px; ">
         <div class="text-center">

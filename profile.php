@@ -156,7 +156,9 @@
     <div class="container rounded bg-white mt-5 mb-5 content">
     <div class="row d-flex justify-content-center" style="width: 1300px;">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="200px" height="190px" src="images\user-avatar.png">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img src="<?php echo 'studentsimages/' .$r["simage"]; ?>">
+                
             <span class="font-weight-bold" style="font-size: 1.3rem;">
                 <br>
             <?php 
