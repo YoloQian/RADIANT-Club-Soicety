@@ -8,6 +8,8 @@
     
 
     session_start();
+
+    include "logic.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RADIANT Club & Soicety</title>
+    <title>Club & Soicety - RADIANT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,12 +30,6 @@
       font-family: "Capriola", sans-serif;
       color: #e6b800;
       font-size: 25px;
-      }
-
-      /* Context of club and society */
-      h1 {
-        color: #e6b800;
-        text-align: center;
       }
 
       h5 {
@@ -156,7 +152,7 @@
       <div class="row pt-md-5 pb-lg-5 justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
           <h1>
-            <span class="fw">Welcome to <b>Club & Society</b><br><br></span>
+            <span class="fw" style="color: #e6b800; text-align: center;">Welcome to <b>Club & Society</b><br><br></span>
           </h1>
           <h5>
             <p class="fw-light" style="text-align: center;">
@@ -169,7 +165,7 @@
       </div>
     </div>
 
-    <h1 style="text-decoration: underline;">List of Club & Societies</h1>
+    <h1 style="text-decoration: underline; color: #e6b800; text-align: center;">List of Club & Societies</h1>
 
     <?php
       $id=$_GET["id"];
@@ -196,22 +192,23 @@
         $result = mysqli_query($conn,$query);
         while ($row = mysqli_fetch_array($result)){
         ?>
+        <?php foreach($result as $r){ ?>
         <div class='grid-item'>
           <div class="clubs">
-            <br>
-            <h2><?php echo $row["cname"]; ?></h2>
-            <img src="<?php echo 'clubsimages/' .$row["cimage"]; ?>">
+            <h2><?php echo $r["cname"]; ?></h2>
+            <img src="<?php echo 'clubsimages/' .$r["cimage"]; ?>">
             <hr>
-            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
+            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="clubsdetails.php?cid=<?php echo $r["cid"];?>"'>
             <hr>
           </div>
         </div>
         <?php
           }
+        }
         ?>
     </div> 
 
-     
+    
 
      
 

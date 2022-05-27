@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dashboard Template · Bootstrap v5.1</title>
+    <title>Admin - RADIANT</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -127,7 +127,7 @@
         <!--Table list from database for feedback-->
         <?php
         
-        $result =mysqli_query($conn,"SELECT * from feedback");
+        $result =mysqli_query($conn,"SELECT * from message");
             echo "<table border='1' class='table table-dark w-auto text-center'>
             <tr>
                 <th>MID</th>
