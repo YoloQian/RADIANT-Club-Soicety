@@ -126,6 +126,13 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- admin only see -->
+                  <?php
+                    if($_SESSION['fullname'] == 'admin'){
+                    echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
+                    }
+                    ?> 
+                    <!-- end here-->
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
               </ul>
@@ -264,12 +271,11 @@
                 </div>
                 <div class="col-md-6"> 
                     <label class="labels">Comfirm Password</label> 
-                    <input type="password" name="confirm_password" class="form-control" required="" id="confirm_password" placeholder="Enter Confirm Password" value="" onkeyup='check();'> 
-                   
+                    <input type="password" name="confirm_password" class="form-control" required="" id="confirm_password" placeholder="Enter Confirm Password" value="" onkeyup='check();'>  
                 </div>
-                <span class="mt-2 text-center" id='message'></span>
+                <span class="mt-2 text-center" id='message'> </span>
                 </div>
-                <div class="mt-5 text-center">
+                <div class="mt-3 text-center">
                     <button class="btn btn-primary profile-button" name="submit" type="submit">Update Password</button>
                 </div>
 
