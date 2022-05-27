@@ -134,7 +134,12 @@
                 <th>Cname</th>
                 <th>Cimage</th>
                 <th>Category</th>
+                <th>Content</th>
+                <th>WallPaper</th>
                 <th>Link</th>
+                <th>Mail</th>
+                <th>Venue</th>
+                <th>Location</th>
                 <th>Action</th>
             </tr>";
 
@@ -145,7 +150,12 @@
             echo "<td>" . $row['cname'] . "</td>";
             echo "<td>" . $row['cimage'] . "</td>";
             echo "<td>" . $row['category'] . "</td>";
+            echo "<td>" . $row['content'] . "</td>";
+            echo "<td>" . $row['wallpaper'] . "</td>";
             echo "<td>" . $row['link'] . "</td>";
+            echo "<td>" . $row['mail'] . "</td>";
+            echo "<td>" . $row['venue'] . "</td>";
+            echo "<td>" . $row['location'] . "</td>";
             echo "<td > <a class='btn btn-danger' href='./deleteclub.php?id= ".$row['cid'] . "'>Delete</a> </td>";
             echo "</tr>";
             }
