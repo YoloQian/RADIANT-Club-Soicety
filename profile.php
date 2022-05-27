@@ -5,9 +5,36 @@
     $dbase = "sdp";
     //establish connection to mysql server
     $conn = mysqli_connect($servername,$user,$password,$dbase);
-    
+
+    $sql_query = "SELECT * FROM `students` where username = username LIMIT 1";
+    $result = mysqli_query($conn, $sql_query);
+    while ($row = mysqli_fetch_array($result)) {
+
+    if(isset($_POST['submit'])){
+      $idnum =  $_POST['idnum'];
+      $old_password = $_POST['old_password'];
+      $txtpassword = $_POST['txtPassword'];
+
+      $check_password = mysqli_query($conn, "SELECT password FROM students where sid = '$idnum' and password = '$old_password'");
+      if(mysqli_num_rows($check_password) > 0){
+        echo "<script type='text/javascript'>alert('Password Updated Successfully!'); window.location.href='profile.php';</script>";
+        $query = "UPDATE `students` SET `password`='$txtpassword' WHERE $idnum = sid";
+        if(mysqli_query($conn,$query)){
+          echo "Password updated successfully!";
+        }else{
+            echo "Error : " . mysqli_error($conn);
+        }
+        }else{
+          echo "<script type='text/javascript'>alert('The Current Password You Entered Was Incorrect, Please Try Again!'); window.location.href='profile.php';</script>";
+          
+        }
+      }
+    }
+      
+     
 
     session_start();
+
     
 ?>
 
@@ -37,6 +64,11 @@
       font-size: 25px;
       }
 
+      .content {
+      max-width: 1300px;
+      margin: auto;
+      padding: 10px;
+      }
     </style>
 </head>
 <body>
@@ -113,8 +145,164 @@
     </div>
     </div>
     
-    <!-- Content here -->
-    <br><br>
+    <!--Profile-->
+    <div class="container rounded bg-white mt-5 mb-5 content">
+    <div class="row d-flex justify-content-center" style="width: 1300px;">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="200px" height="190px" src="images\user-avatar.png">
+            <span class="font-weight-bold" style="font-size: 1.3rem;">
+                <br>
+            <?php 
+                if(isset($_SESSION['username'])) {
+                    echo "Hi, " . $_SESSION['fullname'];
+                }else {
+                } 
+            ?>
+            </span>
+            <span style="font-size: 1.1rem;"> 
+                <?php
+                $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
+                $result = mysqli_query($conn, $sql_query);
+                while ($row = mysqli_fetch_array($result)) {
+                echo $row["email"]
+                ?>
+            </span>
+            <span style="font-size: 1.1rem;"> 
+                <?php
+                $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
+                $result = mysqli_query($conn, $sql_query);
+                while ($row = mysqli_fetch_array($result)) {
+                echo $row["mobile_num"]
+                ?>
+            </span>
+            
+            <?php 
+             }
+            }
+            ?>
+            </div>
+            </div>
+            <?php   
+                $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
+                $result = mysqli_query($conn, $sql_query);
+                while ($row = mysqli_fetch_array($result)) {
+            
+            ?>
+            
+        <div class="col-md-5 border-right"> 
+            <div class="p-3 py-5">
+            <form action="" method="POST" onSubmit="return validate();">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Personal Profile</h4>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-md-6">
+                      <label class="labels">ID</label>
+                      <input type="text" name="idnum" class="form-control" placeholder="" readonly value="<?php echo $row["sid"]?>">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">First Name</label>
+                        <input type="text" name="fname" class="form-control" placeholder="" readonly value="<?php echo $row["Fname"]?>">
+                    </div>
+                    <div class="col-md-6">  
+                        <label class="labels">Last Name</label>
+                        <input type="text" name="lname" class="form-control" placeholder="" readonly value="<?php echo $row["Lname"]?>" >
+                    </div>
+
+                    <div class="col-md-6">  
+                        <label class="labels">Student ID</label>
+                        <input type="text" name="studentid" class="form-control" placeholder="" readonly value="<?php echo $row["studentid"]?>" >
+                    </div>
+                    <div class="col-md-6">  
+                        <label class="labels">Intake</label>
+                        <input type="text" name="intake" class="form-control" placeholder="" readonly value="<?php echo $row["intake"]?>" >
+                    </div>
+                    <div class="col-md-6">  
+                        <label class="labels">IC / Passport</label>
+                        <input type="text" name="ic_passport" class="form-control" placeholder="" readonly value="<?php echo $row["ic_passport"]?>" >
+                    </div>
+
+                    <div class="col-md-6">  
+                        <label class="labels">Gender</label>
+                        <input type="text" name="gender" class="form-control" placeholder="" readonly value="<?php echo $row["gender"]?>" >
+                    </div>
+                
+                    <div class="col-md-6">
+                        <label class="labels">Birthday</label>
+                        <input type="date" name="birthday" class="form-control" readonly value="<?php echo $row["birth_date"]?>">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Country</label>
+                        <input type="text" name="Country" class="form-control" readonly value="<?php echo $row["country"]?>">
+                    </div>
+                
+                    <div class="col-md-6">  
+                        <label class="labels">Club</label>
+                        <input type="text" name="club" class="form-control" placeholder="" readonly value="<?php echo $row["club"]?>" >
+                    </div>
+                    <div class="col-md-6">  
+                        <label class="labels">Role</label>
+                        <input type="text" name="role" class="form-control" placeholder="" readonly value="<?php echo $row["role"]?>" >
+                    </div>
+                </div>
+                <br><hr><br>
+                <!-- Change Password -->
+                <div class="justify-content-between align-items-center mb-3">
+                    <h5 class="text-right">Change Password</h5>
+                </div>
+                <div class="col-md-12">  
+                        <label class="labels">Current Password</label>
+                        <input type="password" name="old_password" class="form-control" required="" placeholder=" Enter Current Password" value="" >
+                        <a href="forgotpassword.php" class="">Forgot Pasword?</a>
+                </div>
+                <div class="row mt-2">
+                <div class="col-md-6">
+                    <label class="labels">New Password</label> 
+                    <input type="password" name="txtPassword" class="form-control" required=""  id="password" placeholder="Enter New Password" value="" onkeyup='check();'>
+                </div>
+                <div class="col-md-6"> 
+                    <label class="labels">Comfirm Password</label> 
+                    <input type="password" name="confirm_password" class="form-control" required="" id="confirm_password" placeholder="Enter Confirm Password" value="" onkeyup='check();'> 
+                   
+                </div>
+                <span class="mt-2 text-center" id='message'></span>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" name="submit" type="submit">Update Password</button>
+                </div>
+
+                <script>
+                    /* Check Password matching and display*/ 
+                    var check = function() {
+                        if (document.getElementById('password').value ==
+                            document.getElementById('confirm_password').value) {
+                            document.getElementById('message').style.color = 'green';
+                            document.getElementById('message').innerHTML = 'Password Matching!';
+                        } else {
+                            document.getElementById('message').style.color = 'red';
+                            document.getElementById('message').innerHTML = 'Password Not Matching!';
+                        }
+                        }
+                    /* Check Password*/
+                    function validate(){
+                        var a = document.getElementById("password").value;
+                        var b = document.getElementById("confirm_password").value;
+                        if (a!=b) {
+                        alert("Passwords Do No Match, Please Try Again");
+                        return false;
+                        }
+                    }
+                </script>
+
+
+                <?php
+        }
+        ?>
+            </form>
+            </div>
+        </div>
 
 
 

@@ -99,7 +99,7 @@ $conn = mysqli_connect($servername,$user,$password,$dbase);
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-outline-warning text-black" type="submit" onclick="alertpassword()">Get New Password</button>
-                            <button class="btn btn-outline-primary text-black" type="submit" onclick="location.href='login.php'">Back to Login</button>
+                            <button class="btn btn-outline-primary text-black" type="submit" onclick="location.href='index.php'">Back to Home</button>
                         </div>
                     </form>
                 </div>
