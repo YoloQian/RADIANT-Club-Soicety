@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dashboard Template · Bootstrap v5.1</title>
+    <title>Admin - RADIANT</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -58,19 +58,20 @@
 
     
     <!-- Custom styles for this template -->
+    
     <link href="dashboard.css" rel="stylesheet">
   <style type="text/css">/* Chart.js */
 @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
   <body data-new-gr-c-s-check-loaded="14.1062.0" data-gr-ext-installed="">
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">RADIANT Club & Society</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">RADIANT Club & Society</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Log out</a>
+      <a class="nav-link px-3" href="logout.php">Log out</a>
     </div>
   </div>
 </header>
@@ -118,6 +119,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0"><!--below here-->
+        <div class="btn-group me-2">
           </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             Current
@@ -126,6 +128,7 @@
       </div>
 
       <!--Tables first row-->
+      
     <div class =row>
       <div class="table-responsive col-md-2">
       <?php       
@@ -237,7 +240,7 @@
 
       <div class="table-responsive col-md-2">
       <?php       
-        $result =mysqli_query($conn,"SELECT * from feedback");
+        $result =mysqli_query($conn,"SELECT * from message");
             echo "<table border='1' class='table table-dark w-100 text-center'>
             <tr>
                 <th>Total Feedback</th>
