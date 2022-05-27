@@ -8,6 +8,8 @@
     
 
     session_start();
+
+    include "logic.php";
 ?>
 
 <!DOCTYPE html>
@@ -196,22 +198,23 @@
         $result = mysqli_query($conn,$query);
         while ($row = mysqli_fetch_array($result)){
         ?>
+        <?php foreach($result as $r){ ?>
         <div class='grid-item'>
           <div class="clubs">
-            <br>
-            <h2><?php echo $row["cname"]; ?></h2>
-            <img src="<?php echo 'clubsimages/' .$row["cimage"]; ?>">
+            <h2><?php echo $r["cname"]; ?></h2>
+            <img src="<?php echo 'clubsimages/' .$r["cimage"]; ?>">
             <hr>
-            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="<?php echo $row["link"]; ?>"'>
+            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="clubsdetails.php?cid=<?php echo $r["cid"];?>"'>
             <hr>
           </div>
         </div>
         <?php
           }
+        }
         ?>
     </div> 
 
-     
+    
 
      
 
