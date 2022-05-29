@@ -135,23 +135,7 @@
                     
                     ?>
                     <!-- Organzer only-->
-                  <?php
-
-                    $query = mysqli_query(
-                      $conn,"SELECT * FROM `students` INNER JOIN clubs ON students.clubid = clubs.cid WHERE username ='".$_SESSION['fullname']."' LIMIT 1");
-                        
-                      $res = mysqli_fetch_array($query);
-                      $clubid = $res['clubid'];
-
-                    $result =mysqli_query($conn,"SELECT * from students");
-                    while($row = mysqli_fetch_array($result)){
-                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
-                      echo "<li><a class='dropdown-item' href='committee.php?cid=$clubid'>
-                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
-                    }
-                    }
-
-                    ?>
+                  
                   <!-- admin only see -->
                   <?php
                     if($_SESSION['fullname'] == 'admin'){

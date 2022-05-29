@@ -295,9 +295,13 @@
                 
                     <div class="col-md-6">  
                         <label class="labels">Club</label>
-                        <?php "SELECT * FROM students INNER JOIN clubs ON students.cid = clubs.cid ORDER BY events.eid desc limit 5";
+                        <?php 
+                        $query = mysqli_query(
+                            $conn,"SELECT clubs.cname FROM clubs INNER JOIN students ON clubs.cid = students.clubid");
+                        $res = mysqli_fetch_array($query);
                         $clubname = $res['cname'];
-                        echo "<input type="text" name="club" class="form-control" placeholder="" readonly value="$cname" >";
+                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+
                          ?>
                     </div>
                     <div class="col-md-6">  
