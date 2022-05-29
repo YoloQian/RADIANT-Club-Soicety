@@ -127,26 +127,30 @@
       <div class="table-responsive">
         <!--Table list from database for Events-->
         <?php       
-        $result =mysqli_query($conn,"SELECT * from event");
+        $result =mysqli_query($conn,"SELECT * from events");
             echo "<table border='1' class='table table-dark w-auto text-center'>
             <tr>
+                <th>EID</th>
+                <th>Etitle</th>
+                <th>Eimage</th>
+                <th>Announcement</th>
+                <th>Description</th>
                 <th>CID</th>
                 <th>Cname</th>
-                <th>Cimage</th>
-                <th>Category</th>
-                <th>Link</th>
-                <th>Action</th>
+                <th>Date / Time</th>
             </tr>";
 
             while($row = mysqli_fetch_array($result))
             {
             echo "<tr>";
+            echo "<td>" . $row['eid'] . "</td>";
+            echo "<td>" . $row['etitle'] . "</td>";
+            echo "<td>" . $row['eimage'] . "</td>";
+            echo "<td>" . $row['announcement'] . "</td>";
+            echo "<td>" . $row['description'] . "</td>";
             echo "<td>" . $row['cid'] . "</td>";
             echo "<td>" . $row['cname'] . "</td>";
-            echo "<td>" . $row['cimage'] . "</td>";
-            echo "<td>" . $row['category'] . "</td>";
-            echo "<td>" . $row['link'] . "</td>";
-            echo "<td > <a class='btn btn-danger' href='./deleteclub.php?id= ".$row['cid'] . "'>Dismiss</a> </td>";
+            echo "<td>" . $row['edate_time'] . "</td>";
             echo "</tr>";
             }
             echo "</table>";

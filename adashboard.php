@@ -177,7 +177,7 @@
 
       <div class="table-responsive col-md-2"> <!-- todo-->
       <?php       
-        $result =mysqli_query($conn,"SELECT * from applyst");
+        $result =mysqli_query($conn,"SELECT * from applyjoinclub");
             echo "<table border='1' class='table table-dark w-100 text-center'>
             <tr>
                 <th>Club Pending Request</th>

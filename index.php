@@ -105,16 +105,26 @@
             <ul class="nav nav-pills ">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
-                <?php 
+                <?php
                 if(isset($_SESSION['username'])) {
-                    echo $_SESSION['fullname'];
+                  echo $_SESSION['fullname'];
                 }else {
                     echo "";
-                }
+                } 
                 ?>
                 </a>
+                
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                    <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                      echo "<li><a class='dropdown-item' href='commitee.php'><i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                    }
+                    }
+                    mysqli_close($conn);
+                    ?>
                     <!-- admin only see -->
                     <?php
                     if($_SESSION['fullname'] == 'admin'){
