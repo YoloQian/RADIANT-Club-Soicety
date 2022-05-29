@@ -17,6 +17,36 @@ if(!isset($_SESSION['username'])){
         mysql_close();
 }
 
+
+//
+if(isset($_POST['submit'])){
+  $username = $_POST['username'];
+  $email = $_POST['email'];
+  $mobilenum = $_POST['mobile_num'];
+  $studentid = $_POST['studentid'];
+  $intake = $_POST['intake'];
+  $gender = $_POST['gender'];
+  $birthdate = $_POST['birth_date'];
+  $country = $_POST['country'];
+  $additionalinfo = $_POST['additionalinfo'];
+  $cid = $_POST['cid'];
+  $cname = $_POST['cname'];
+
+  
+  //create your insert sql
+  $query="INSERT INTO `applyjoinclub`(`username`, `email`, `contact_num`, `studentid`, `intake`, `gender`, `birth_date`, 
+  `country`, `personal_statement`, `clubid`, `cname`) VALUES ('$username','$email','$mobilenum','$studentid','$intake','$gender','$birthdate','$country','$additionalinfo','$cid','$cname')";
+  if(mysqli_query($conn,$query)){
+      echo "Record added successfully!";
+  }else{
+      echo "Error : " . mysqli_error($conn);
+  }
+
+  mysqli_close($conn);
+  header("location: clubsdetails.php?cid=$cid");
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -143,6 +173,7 @@ if(!isset($_SESSION['username'])){
             <h4 class="mb-3">Club Information</h4>
             <div class="row g-3">
             <div class="col-sm-12">
+            <input type="text" class="form-control" id="cid" name="cid" hidden readonly value="<?php echo $r["cid"]; ?>"  >
                 <label for="clubname" class="form-label">Club Name</label>
                 <input type="text" class="form-control" id="cname" name="cname" readonly value="<?php echo $r["cname"]; ?>"  >
             </div>
