@@ -85,6 +85,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <style>
       h1.a {
@@ -182,7 +183,7 @@
     </div>
     
     <!--Profile-->
-    <div class="container rounded bg-white mt-5 mb-5 content" style="">
+    <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
     <div class="row d-flex justify-content-center" style="width: 1300px; ">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -247,7 +248,7 @@
             <div class="p-3 py-5">
             <form action="" method="POST" onSubmit="return validate();">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Personal Profile</h4>
+                    <h4 class="text-right" style="font-size:2.5rem"><b>Personal Profile</b></h4>
                 </div>
                 <div class="row mt-2">
                   <div class="col-md-6">
@@ -304,7 +305,7 @@
                 <br><hr><br>
                 <!-- Change Password -->
                 <div class="justify-content-between align-items-center mb-3">
-                    <h5 class="text-right">Change Password</h5>
+                    <h5 class="text-right"><b>Change Password</b></h5>
                 </div>
                 <div class="col-md-12">  
                         <label class="labels">Current Password</label>

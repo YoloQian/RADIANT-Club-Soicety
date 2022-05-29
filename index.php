@@ -19,6 +19,7 @@
     <title>RADIANT Club & Soicety</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -237,62 +238,97 @@
 
     </div>
     </section>
-    <br><br>
 
 
     <!-- Recent Event -->
-    <div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto content" style="font-family: Koulen,san-serif;" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <?php 
+      $sql = "SELECT * FROM events ORDER BY eid desc limit 6 "; 
+      $result = $conn->query($sql);
+      $sqlall= "SELECT * FROM events ORDER BY eid desc";
+      $resultall = $conn->query($sqlall);
+        
+      $i = 0;
+        
+      if ($result->num_rows > 0) {  
+        
+          // Output data of each row
+          $idarray= array();
+          while($row = $result->fetch_assoc()) {
+              echo "<br>";  
+              
+              // Create an array to store the
+              // id of the blogs        
+              array_push($idarray,$row['eid']); 
+          } 
+      }
+      else {
+          echo "0 results";
+      }
+    ?>
+    <div class="blog-latest ">
+      <div class="container ">
+      <h1 class="blog-secondary-heading text-dark">
+        <a href="events.php" class="blog-link" style="font-size:3.5rem; text-decoration:none;">Recent Event
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+        </svg>
+        </a>
+      </h1><br>
+        
+        <div class="main-carousel p-2 " id="latestCarousel">
+          <div class="row">
+            
+    
+            <?php 
+                
+              for($x = 0; $x < 6; $x++) {
+    
+                // This is the loop to display all
+                // the stored blog posts
+                if(isset($x)) {
+                  $query = mysqli_query(
+                  $conn,"SELECT * FROM `events` WHERE eid = '$idarray[$x]'");
+                    
+                  $res = mysqli_fetch_array($query);
+    
+                  $image = $res['eimage'];
+                  $blog_title = $res['etitle'];
+                  $blog_id = $res['eid'];
+                  $blog_date = $res['edate_time'];
+            ?>
+            <div class="col-sm">
+              <div class="carousel-cell p-2">
+                <div class="card  mx-2" style="width: 18rem;">
+                  <img class="card-img-top" src="eventsimages/<?php echo $image; ?>" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <a href="eventsdetails.php?eid=<?php echo $blog_id?>" class="blog-link">
+                        <?php 
+                          echo $blog_title;
+                      ?>
+                    </h5>
+                    </a>
+                    <h6 class="card-subtitle mt-2 text-muted">Posted on - 
+                    <?php 
+                          echo $blog_date;
+                      ?>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php
+                }
+              }
+            ?>
+          </div>
+
+        </div>
+      </div>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block card">
-          <h3>First slide label</h3>
-          <p>Some representative placeholder content for the first slide.</p>
-          <a href="#" class="btn btn-primary stretched-link">Details</a>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block card">
-          <h3>Second slide label</h3>
-          <p>Some representative placeholder content for the second slide.</p>
-          <a href="#" class="btn btn-primary stretched-link">Details</a>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block card">
-          <h3>Third slide label</h3>
-          <p>Some representative placeholder content for the third slide.</p>
-          <a href="#" class="btn btn-primary stretched-link">Details</a>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="events/event-banner.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block card">
-          <h3>More Events!</h3>
-          <a href="events.php" class="btn btn-primary stretched-link">View More</a>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
   <!-- Help -->
-  <br><br>
+  <br><hr><br>
   <div class="card mx-auto content" style="width:50%; font-family: Koulen,san-serif;">
   <br>
   <img src="images/helpdesk.webp" class="card-img-top mx-auto" style="" alt="...">
@@ -302,6 +338,7 @@
     <a href="contact.php" class="btn btn-primary btn-lg">Contact Us Now!</a>
   </div>
 </div>
+<br><br>
   
     <!--Footer-->
     <div class="container">
