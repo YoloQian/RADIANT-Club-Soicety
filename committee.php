@@ -10,7 +10,14 @@
       session_start();
 
 
-      include "logic.php";
+      $query = "SELECT * FROM clubs";
+        $result = mysqli_query($conn,$query);
+
+        if(isset($_REQUEST['cid'])){
+        $cid = $_REQUEST['cid'];
+        $query = "SELECT * FROM clubs WHERE cid = $cid";
+        $result = mysqli_query($conn,$query);
+    }
   ?>
 
   <!DOCTYPE html>
@@ -173,101 +180,7 @@
       
       <!-- Show club information -->
 
-      <?php foreach($result as $r){ ?>
-        <form method="GET">
-          <section class="bg-accent bg-position-center bg-size-cover py-3 py-sm-5" style="background-image: url(<?php echo 'clubswallpaper/' .$r["wallpaper"]; ?>); max-height: 100%">
-            <div class="container py-5">
-              <div class="row pt-md-5 pb-lg-5 justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
-                  <h1 class="text-light pb-sm-3">
-                    <span class="fw-light" >Welcome to <b><?php echo $r["cname"]; ?></b><br></span>
-                  </h1>
-                    <span class="d-inline-block h5 text-light fw-light mx-2 opacity-70" style="text-align: justify; text-justify: inter-word; ">
-                      <?php echo $r['content']; ?>
-                    </span>
-                  <input type="button" class="btn btn-warning btn-lg" value="JOIN US"  style="border-radius: 10%; margin-top:25px; font-weight: bold;"
-                   onClick='window.location.href="joinclub.php?cid=<?php echo $r["cid"];?>"'>
-                </div>
-              </div>
-            </div>
-          </section>
-        </form>
-      <?php
-        }
-      ?>
       
-    <!-- Show club events -->
-    <?php
-
-        $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid ORDER BY events.eid desc limit 5 ";
-        $result = mysqli_query($conn,$query);
-
-        if(isset($_REQUEST['eid'])){
-          $eid = $_REQUEST['eid'];
-          $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid ORDER BY events.eid desc limit 5 ";
-          $result = mysqli_query($conn,$query);
-        }
-
-    ?>
-
-    <div class="grid-container" style='margin: 30px 80px;'>
-        <?php 
-        $result = mysqli_query($conn,$query);
-        while ($row = mysqli_fetch_array($result)){
-        ?>
-        <?php foreach($result as $r){ ?>
-        <div class='grid-item'>
-          <div class="clubs">
-            <h2><br><?php echo $r["etitle"]; ?></h2>
-            <img src="<?php echo 'eventsimages/' .$r["eimage"]; ?>"><br>
-            <h6 class="card-subtitle mt-2 text-muted">Posted on - 
-                    <?php 
-                          echo $r["edate_time"];;
-                      ?>
-                    </h6>
-            <hr>
-            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="eventsdetails.php?eid=<?php echo $r["eid"];?>"'>
-            <hr>
-          </div>
-        </div>
-        <?php
-          }
-        }
-        ?>
-    </div>
-     
-    <!-- Show club contact -->
-    <div class="container px-4 py-5" id="icon-grid">
-      <h2 class="pb-2 border-bottom">Contact Us</h2>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-        <div class="col d-flex align-items-start">
-          <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
-          <div class="followus">
-            <h4 class="fw-bold mb-0">Follow Us</h4>
-            <a href=" <?php echo 'http://www.' .$r["link"]; ?>" class="fa fa-facebook"></a>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
-          <div>
-            <h4 class="fw-bold mb-0">E-mail:</h4><br />
-            <p><?php echo $r["mail"]; ?></p>
-          </div>
-        </div>
-        
-        <div class="col d-flex align-items-start">
-          <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
-          <div>
-            <h4 class="fw-bold mb-0">Venue:</h4><br />
-            <p><?php echo $r["venue"]; ?></p>
-            <br />
-            <h4 class="fw-bold mb-0">Location:</h4><br />
-            <p><?php echo $r["location"]; ?></p>
-          </div>
-        </div> 
-      </div>
-    </div>
 
     
       <!--Footer-->
