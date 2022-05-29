@@ -175,7 +175,7 @@
         <?php foreach($result as $r){ ?>
         <div class='grid-item'>
           <div class="events">
-            <img src="<?php echo 'eventsimages/' .$r["eimage"]; ?>">
+            <img style="height: auto; width: auto" src="<?php echo 'eventsimages/' .$r["eimage"]; ?>">
             <h2><br><?php echo $r["etitle"]; ?></h2>
             
             <div class="mb-1 text-muted" style="font-size:15px"><br>Posted on - <?php echo $r["edate_time"]; ?></div>

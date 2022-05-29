@@ -156,7 +156,8 @@
                   <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                 </svg>
                     <br><br>
-                    <p style="text-align:center; font-size: 1.1rem; " class="lh-1">+6017-9546880<br><br>+603-51033212</p>
+                    <a href="tel:+60179546880" style="text-align:center; font-size: 1.1rem; " class="lh-1">+6017-9546880<br></a>
+                    <a href="tel:+60351033212" style="text-align:center; font-size: 1.1rem; " class="lh-1"><br>+603-51033212</a>
                 </div>
 
                 <div class="col">
@@ -165,9 +166,10 @@
                     <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
                   </svg>
                     <br><br>
-                    <adress style="text-align:center; font-size: 1rem; " class="lh-1">
+                    <a href='https://www.google.com/maps/place/Asia+Pacific+University+of+Technology+%26+Innovation+(APU)/@3.0517689,101.6922944,16z/data=!4m9!1m2!2m1!1sapu!3m5!1s0x31cc4abb795025d9:0x1c37182a714ba968!8m2!3d3.0554057!4d101.7005614!15sCgNhcHVaBSIDYXB1kgEScHJpdmF0ZV91bml2ZXJzaXR5'
+                    style="text-align:center; font-size: 1rem; " target="_blank" class="lh-1">
                         8 Jalan Teknologi 10, <br>Taman Teknologi Malaysia, <br>57000 Kuala Lumpur, <br>Wilayah Persekutuan Kuala Lumpur
-                    </adress>
+                    </a>
                 </div>
 
                 <div class="w-100"></div>
@@ -178,8 +180,8 @@
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
                   </svg>
                     <br><br>
-                    <p style="text-align:center; font-size: 1.1rem; " class="lh-1">@Radiant Club & Soicety
-                    </p>
+                    <a href="https://www.facebook.com/Radiant-Club-Soicety-113966541324963" style="text-align:center; font-size: 1.1rem; " class="lh-1">@Radiant Club & Soicety
+                    </a>
                     <br><br><br>
                 </div>
 
@@ -188,7 +190,7 @@
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
                   </svg>
                     <br><br>
-                    <p style="text-align:center; font-size: 1.1rem; " class="lh-1">customerservice@radiantcs.com.my</p>
+                    <p style="text-align:center; font-size: 1.1rem; " class="lh-1"><a href="mailto:apu.amcs@gmail.com?subject=subject text">customerservice@radiantcs.com.my</a></p>
                     <br><br><br>
                 </div>
             </div>
