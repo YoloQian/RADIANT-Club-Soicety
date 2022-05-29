@@ -54,6 +54,41 @@
           color: white;
       }
 
+      /* clubs grid container */
+      .grid-container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      /* clubs content box */
+      .clubs {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+
+      .clubs img{
+        width: 50%;
+        min-height: 120px;
+        max-height: 150px;
+      }
+
+      .clubs button:hover {
+        opacity: 0.7;
+      }
+
       </style>
   </head>
   <body>
@@ -136,7 +171,7 @@
       </div>
       </div>
       
-      <!-- Content here -->
+      <!-- Show club information -->
 
       <?php foreach($result as $r){ ?>
         <form method="GET">
@@ -161,9 +196,47 @@
         }
       ?>
       
+    <!-- Show club events -->
+    <?php
 
+        $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid ORDER BY events.eid desc limit 5 ";
+        $result = mysqli_query($conn,$query);
 
+        if(isset($_REQUEST['eid'])){
+          $eid = $_REQUEST['eid'];
+          $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid ORDER BY events.eid desc limit 5 ";
+          $result = mysqli_query($conn,$query);
+        }
 
+    ?>
+
+    <div class="grid-container" style='margin: 30px 80px;'>
+        <?php 
+        $result = mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($result)){
+        ?>
+        <?php foreach($result as $r){ ?>
+        <div class='grid-item'>
+          <div class="clubs">
+            <h2><br><?php echo $r["etitle"]; ?></h2>
+            <img src="<?php echo 'eventsimages/' .$r["eimage"]; ?>"><br>
+            <h6 class="card-subtitle mt-2 text-muted">Posted on - 
+                    <?php 
+                          echo $r["edate_time"];;
+                      ?>
+                    </h6>
+            <hr>
+            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="eventsdetails.php?eid=<?php echo $r["eid"];?>"'>
+            <hr>
+          </div>
+        </div>
+        <?php
+          }
+        }
+        ?>
+    </div>
+     
+    <!-- Show club contact -->
     <div class="container px-4 py-5" id="icon-grid">
       <h2 class="pb-2 border-bottom">Contact Us</h2>
 

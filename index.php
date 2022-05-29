@@ -109,6 +109,7 @@
                 <?php
                 if(isset($_SESSION['username'])) {
                   echo $_SESSION['fullname'];
+<<<<<<< HEAD
                 }else {
                     echo "";
                 } 
@@ -122,12 +123,58 @@
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
                       echo "<li><a class='dropdown-item' href='committee.php'><i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+=======
+              }else {
+                  echo "";
+              } 
+              ?>
+              </a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- committee only-->
+                  <?php
+
+                    $query = mysqli_query(
+                      $conn,"SELECT * FROM `students` INNER JOIN clubs ON students.clubid = clubs.cid WHERE username ='".$_SESSION['fullname']."' LIMIT 1");
+                        
+                      $res = mysqli_fetch_array($query);
+                      $clubid = $res['clubid'];
+
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                      echo "<li><a class='dropdown-item' href='committee.php?cid=$clubid'>
+                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                    }
+                    }
+                    
+                    ?>
+                    <!-- Organzer only-->
+                  <?php
+
+                    $query = mysqli_query(
+                      $conn,"SELECT * FROM `students` INNER JOIN clubs ON students.clubid = clubs.cid WHERE username ='".$_SESSION['fullname']."' LIMIT 1");
+                        
+                      $res = mysqli_fetch_array($query);
+                      $clubid = $res['clubid'];
+
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                      echo "<li><a class='dropdown-item' href='committee.php?cid=$clubid'>
+                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+>>>>>>> 2b0fdef94b563816e00a178984a006e0833ad122
                     }
                     }
 
                     ?>
+<<<<<<< HEAD
                     <!-- admin only see -->
                     <?php
+=======
+                  <!-- admin only see -->
+                  <?php
+>>>>>>> 2b0fdef94b563816e00a178984a006e0833ad122
                     if($_SESSION['fullname'] == 'admin'){
                     echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
                     }
