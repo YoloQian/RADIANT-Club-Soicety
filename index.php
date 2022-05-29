@@ -121,10 +121,10 @@
                     $result =mysqli_query($conn,"SELECT * from students");
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
-                      echo "<li><a class='dropdown-item' href='commitee.php'><i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                      echo "<li><a class='dropdown-item' href='committee.php'><i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
                     }
                     }
-                    mysqli_close($conn);
+
                     ?>
                     <!-- admin only see -->
                     <?php

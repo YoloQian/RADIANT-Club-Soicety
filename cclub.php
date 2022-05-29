@@ -82,7 +82,7 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="committee.php">
+            <a class="nav-link active" aria-current="page" href="cclub.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
               Club
             </a>
@@ -128,7 +128,56 @@
       </div>
 
 <!-- user table -->
+<div class="table-responsive">
+      <?php
+        $result =mysqli_query($conn,"SELECT * from students");
+            echo "<table border='1' class='table table-dark table-striped text-center'>
+            <tr>
+                <th>SID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Fname</th>
+                <th>Lname</th>
+                <th>Intake</th>
+                <th>Mobile.No</th>
+                <th>Gender</th>
+                <th>Birth_date</th>
+                <th>IC/Passport</th>
+                <th>Country</th>
+                <th>Role</th>
+                <th>Club/Society</th>
+                <th>Edit User</th>
+                <th>Remove User</th>
+            </tr>";
 
+            while($row = mysqli_fetch_array($result))
+            {
+            echo "<tr>";
+            echo "<td>" . $row['sid'] . "</td>";
+            echo "<td>" . $row['username'] . "</td>";
+            echo "<td>" . $row['email'] . "</td>";
+            echo "<td>" . $row['password'] . "</td>";
+            echo "<td>" . $row['Fname'] . "</td>";
+            echo "<td>" . $row['Lname'] . "</td>";
+            echo "<td>" . $row['intake'] . "</td>";
+            echo "<td>" . $row['mobile_num'] . "</td>";
+            echo "<td>" . $row['gender'] . "</td>";
+            echo "<td>" . $row['birth_date'] . "</td>";
+            echo "<td>" . $row['ic_passport'] . "</td>";
+            echo "<td>" . $row['country'] . "</td>";
+            echo "<td>" . $row['role'] . "</td>";
+            echo "<td>" . $row['club'] . "</td>";
+            echo "<td> <a class='btn btn-info' href='./edituser.php?id= ".$row['sid'] . "'>Edit</a> </td>";
+            echo "<td> <a class='btn btn-danger' href='./deleteuser.php?id= ".$row['sid'] . "'>Delete</a> </td>";
+            echo "</tr>";
+            }
+            echo "</table>";
+            mysqli_close($conn);
+        ?>
+      </div>
+    </main>
+  </div>
 </div>
 
 
