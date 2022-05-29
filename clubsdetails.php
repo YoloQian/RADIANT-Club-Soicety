@@ -110,6 +110,13 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                    <!-- admin only see -->
+                  <?php
+                    if($_SESSION['fullname'] == 'admin'){
+                    echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
+                    }
+                    ?> 
+                    <!-- end here-->
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
                 </ul>
@@ -143,9 +150,8 @@
                     <span class="d-inline-block h5 text-light fw-light mx-2 opacity-70" style="text-align: justify; text-justify: inter-word; ">
                       <?php echo $r['content']; ?>
                     </span>
-                  <button onclick="location.href='#'" class="btn btn-warning btn-lg " style="border-radius: 10%; margin-top:25px; font-weight: bold; ">
-                    JOIN US &nbsp;<img src="images/right-arrow.png" >
-                  </button>
+                  <input type="button" class="btn btn-warning btn-lg" value="JOIN US"  style="border-radius: 10%; margin-top:25px; font-weight: bold;"
+                   onClick='window.location.href="joinclub.php?cid=<?php echo $r["cid"];?>"'>
                 </div>
               </div>
             </div>

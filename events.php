@@ -8,6 +8,15 @@
     
 
     session_start();
+    $query = "SELECT * FROM events";
+    $result = mysqli_query($conn,$query);
+
+    if(isset($_REQUEST['eid'])){
+      $eid = $_REQUEST['eid'];
+      $query = "SELECT * FROM events WHERE eid = $eid";
+      $result = mysqli_query($conn,$query);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +38,51 @@
       color: #e6b800;
       font-size: 25px;
       }
+      .content {
+      max-width: 1300px;
+      margin: auto;
+      padding: 10px;
+      }
 
+      h5 {
+        color: black;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+      /* clubs grid container */
+      .grid-container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 10 auto auto;
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      /* events content box */
+      .events {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+      }
+
+      .events img{
+        width: 50%;
+        min-height: 120px;
+        max-height: 150px;
+      }
+
+      .events button:hover {
+        opacity: 0.7;
+      }
     </style>
 </head>
 <body>
@@ -86,6 +139,13 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- admin only see -->
+                  <?php
+                    if($_SESSION['fullname'] == 'admin'){
+                    echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
+                    }
+                    ?> 
+                    <!-- end here-->
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
               </ul>
@@ -105,8 +165,31 @@
     </div>
     </div>
     
-    <!-- Content here -->
+    <!-- Show all events -->
     <br><br>
+    <div class="grid-container content mx-auto" style='margin: 30px 80px;'>
+        <?php 
+        $result = mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($result)){
+        ?>
+        <?php foreach($result as $r){ ?>
+        <div class='grid-item'>
+          <div class="events">
+            <img style="height: auto; width: auto" src="<?php echo 'eventsimages/' .$r["eimage"]; ?>">
+            <h2><br><?php echo $r["etitle"]; ?></h2>
+            
+            <div class="mb-1 text-muted" style="font-size:15px"><br>Posted on - <?php echo $r["edate_time"]; ?></div>
+            <hr>
+            <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="eventsdetails.php?eid=<?php echo $r["eid"];?>"'>
+            <hr>
+          </div>
+        </div>
+        <?php
+          }
+        }
+        ?>
+    </div> 
+    
 
 
 

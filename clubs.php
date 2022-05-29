@@ -127,6 +127,13 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- admin only see -->
+                  <?php
+                    if($_SESSION['fullname'] == 'admin'){
+                    echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
+                    }
+                    ?> 
+                    <!-- end here-->
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
               </ul>
@@ -165,7 +172,7 @@
       </div>
     </div>
 
-    <h1 style="text-decoration: underline; color: #e6b800; text-align: center;">List of Club & Societies</h1>
+    <h1 style="text-decoration: underline; color: #e6b800; text-align: center;">List of Clubs & Societies</h1>
 
     <?php
       $id=$_GET["id"];

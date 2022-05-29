@@ -1,0 +1,30 @@
+
+*{
+    box-sizing: border-box;    
+  }
+    
+  .card {
+      height: 40%;
+  }
+    
+  a.blog-link {    
+      color:black;
+      text-decoration:underline;
+  }
+    
+  a.blog-link:hover {    
+      color: #adadad;
+  }
+    
+  .column {
+      float:left;
+      width:15%;
+      padding:2px;
+      height:100px;
+  }
+    
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }

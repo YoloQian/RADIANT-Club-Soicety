@@ -91,6 +91,13 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- admin only see -->
+                  <?php
+                    if($_SESSION['fullname'] == 'admin'){
+                    echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
+                    }
+                    ?> 
+                    <!-- end here-->
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
               </ul>
@@ -118,7 +125,7 @@
                 <div class="font-monospace" style="display: flex;flex-direction: column;">
                     <br><br>
                     <h1 class="text-uppercase" style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem;"><b>What We Provide</b></h1>
-                    <p style="margin: 1rem;font-size: 1.3rem;">We are RADIANT CLUB AND Society which provides students to join various type of bodies that we provide. Students who joined a club is able to participate in several activities and event. Furthermore, student who bring achievement to their respective club/society is able to be promoted into committees of the club.<br><br> NEW MEMBERS ARE ALWAYS WELCOME!!!
+                    <p style="margin: 1rem;font-size: 1.3rem;">We are RADIANT Club and Society which provides students to join various type of bodies that we provide. Students who joined a club is able to participate in several activities and event. Furthermore, student who bring achievement to their respective club/society is able to be promoted into committees of the club.<br><br> NEW MEMBERS ARE ALWAYS WELCOME!!!
                     </p>
                     <br>
                 </div>
@@ -132,7 +139,7 @@
               <div class="font-monospace " style="display: flex;flex-direction: column;align-items: center;text-align: center; ">
                   <br><br>
                   <h1 class="text-uppercase " style="font-size: 3.75rem; text-align: left;margin: .5rem .5rem; "><b>What is Our Goal?</b></h1>
-                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure students are able to take part in clubs/society without the needs to register physically, this makes it convenience especially with the current outbreak of Covid-19 which prevents students from attending physically. Besides, we strive to let students to experiences a different environment other than studying during the pandemic and till the end of pandemic.
+                  <p style="margin: 1rem;font-size: 1.3rem; ">Our goal is to ensure students are able to take part in Clubs & Societies without the needs to register physically, this makes it convenience especially with the current outbreak of Covid-19 which prevents students from attending physically. Besides, we strive to let students to experiences a different environment other than studying during the pandemic and till the end of pandemic.
                   </p>
                   <br>
               </div>

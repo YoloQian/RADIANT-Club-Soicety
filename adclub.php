@@ -135,7 +135,7 @@
                 <th>Cimage</th>
                 <th>Category</th>
                 <th>Content</th>
-                <th>WallPaper</th>
+                <th>Wallpaper</th>
                 <th>Link</th>
                 <th>Mail</th>
                 <th>Venue</th>
