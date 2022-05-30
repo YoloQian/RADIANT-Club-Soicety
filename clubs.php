@@ -224,7 +224,7 @@
         <?php foreach($result as $r){ ?>
         <div class='grid-item'>
           <div class="clubs">
-            <h2><?php echo $r["cname"]; ?></h2>
+            <h2><br><?php echo $r["cname"]; ?></h2>
             <img src="<?php echo 'clubsimages/' .$r["cimage"]; ?>">
             <hr>
             <input type="button" class="btn btn-primary" value="Learn More" onClick='window.location.href="clubsdetails.php?cid=<?php echo $r["cid"];?>"'>
