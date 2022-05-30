@@ -145,12 +145,12 @@ s<?php
                         </select>
                     </div>
                     <div class="col-md-6">  
-                        <label class="labels">Club Image</label>
-                        <ul><input type="file" id="cimage" name="cimage"  /></ul>
+                        <label class="labels" hidden>Club Image</label>
+                        <ul><input type="file" id="cimage" name="cimage" hidden /></ul>
                     </div>
                     <div class="col-md-6">  
-                        <label class="labels">Wallpaper</label>
-                        <ul><input type="file" id="cimage" name="cimage"  /></ul>
+                        <label class="labels" hidden>Wallpaper</label>
+                        <ul><input type="file" id="cimage" name="cimage" hidden /></ul>
                     </div>
                     <div class="col-md-12">
                         <label class="labels">Description</label>

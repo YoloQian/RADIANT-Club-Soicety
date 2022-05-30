@@ -142,6 +142,15 @@
                     <div class="col-md-6">
                         <label class="labels">Club ID</label>
                         <input type="text" name="clubid" class="form-control" readonly value="<?= $row["clubid"]?>">
+                        <?php 
+                        $cid = $row["clubid"];
+                        $query = mysqli_query(
+                            $conn,"SELECT * FROM clubs WHERE cid = $cid");
+                        $res = mysqli_fetch_array($query);
+                        $clubname = $res['cname'];
+                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+
+                         ?>
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Role</label>

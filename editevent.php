@@ -106,12 +106,12 @@
                     <div class="row mt-2">
                         <div class="col-md-6">  
                             <label class="labels">Club ID</label>
-                            <input type="text" name="clubid" class="form-control" placeholder="" value="<?= $row["cid"]?>" >
+                            <input type="text" name="clubid" class="form-control" placeholder="" readonly value="<?= $row["cid"]?>" >
                         </div>
 
                         <div class="col-md-6">  
                             <label class="labels">Club Name</label>
-                            <input type="text" name="clubname" class="form-control" placeholder="" value="<?= $row["cname"]?>" >
+                            <input type="text" name="clubname" class="form-control" placeholder="" readonly value="<?= $row["cname"]?>" >
                         </div>
                         <div class="col-md-6">
                             <label class="labels">Event Images:</label>

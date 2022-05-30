@@ -149,7 +149,7 @@
             echo "<tr>";
             echo "<td>" . $row['mid'] . "</td>";
             echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['email'] . "</td>";
+            echo "<td> <a href='mailto:apu.amcs@gmail.com?subject=subject text'>" . $row['email'] . "</a></td>";
             echo "<td>" . $row['subject'] . "</td>";
             echo "<td>" . $row['message'] . "</td>";
             echo "<td>" . $row['mdate_time'] . "</td>";

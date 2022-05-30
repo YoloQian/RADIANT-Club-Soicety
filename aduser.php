@@ -136,9 +136,9 @@
                 <th>SID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Fname</th>
                 <th>Lname</th>
+                <th>Student ID</th>
                 <th>Intake</th>
                 <th>Mobile.No</th>
                 <th>Gender</th>
@@ -157,9 +157,9 @@
             echo "<td>" . $row['sid'] . "</td>";
             echo "<td>" . $row['username'] . "</td>";
             echo "<td>" . $row['email'] . "</td>";
-            echo "<td>" . $row['password'] . "</td>";
             echo "<td>" . $row['Fname'] . "</td>";
             echo "<td>" . $row['Lname'] . "</td>";
+            echo "<td>" . $row['studentid'] . "</td>";
             echo "<td>" . $row['intake'] . "</td>";
             echo "<td>" . $row['mobile_num'] . "</td>";
             echo "<td>" . $row['gender'] . "</td>";

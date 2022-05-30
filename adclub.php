@@ -130,7 +130,7 @@
         
       <!-- Club table -->
       <button onclick="location.href='createclubs.php'" type="button" class="btn btn-success justify-content-end">Add New Club</button>
-      <div class="table-responsive">
+      <div class="table">
         <br>
         <!--Table list from database for Club/Society-->
         <?php       

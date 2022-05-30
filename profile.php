@@ -74,6 +74,10 @@
       margin: auto;
       padding: 10px;
       }
+
+      label{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
@@ -184,7 +188,7 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img height='120'; width='128' src="images/personal-data.png">
 
-            <span class="font-weight-bold" style="font-size: 1.3rem;">
+            <span class="font-weight-bold" style="font-size: 1.3rem;font-weight: bold;">
                 <br>
             <?php 
                 if(isset($_SESSION['username'])) {
@@ -193,7 +197,7 @@
                 } 
             ?>
             </span>
-            <span style="font-size: 1.1rem;"> 
+            <span style="font-size: 1.1rem;font-weight: bold;"> 
                 <?php
                 $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
                 $result = mysqli_query($conn, $sql_query);
@@ -201,7 +205,7 @@
                 echo $row["email"]
                 ?>
             </span>
-            <span style="font-size: 1.1rem;"> 
+            <span style="font-size: 1.1rem;font-weight: bold;"> 
                 <?php
                 $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
                 $result = mysqli_query($conn, $sql_query);
@@ -276,8 +280,9 @@
                     <div class="col-md-6">  
                         <label class="labels">Club</label>
                         <?php 
+                        $cid = $row["clubid"];
                         $query = mysqli_query(
-                            $conn,"SELECT clubs.cname FROM clubs INNER JOIN students ON clubs.cid = students.clubid");
+                            $conn,"SELECT * FROM clubs WHERE cid = $cid");
                         $res = mysqli_fetch_array($query);
                         $clubname = $res['cname'];
                         echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";

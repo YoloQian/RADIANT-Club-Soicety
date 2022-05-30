@@ -143,6 +143,7 @@
                 <th>CID</th>
                 <th>Cname</th>
                 <th>Date / Time</th>
+                <th>Remove Event</th>
             </tr>";
 
             while($row = mysqli_fetch_array($result))
@@ -156,6 +157,7 @@
             echo "<td>" . $row['cid'] . "</td>";
             echo "<td>" . $row['cname'] . "</td>";
             echo "<td>" . $row['edate_time'] . "</td>";
+            echo "<td> <a class='btn btn-danger' href='./deleteevent.php?id=".$row['eid'] . "'>Delete</a> </td>";
             echo "</tr>";
             }
             echo "</table>";

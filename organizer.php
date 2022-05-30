@@ -111,7 +111,7 @@
       <div class="table-responsive">
         <!--Table list from database for Events-->
         <?php       
-        $result =mysqli_query($conn,"SELECT * from events");
+        $result =mysqli_query($conn,"SELECT * from events ORDER BY eid DESC");
         $profile =mysqli_query($conn,"SELECT * from students");
             echo "<table border='1' class='table table-dark w-auto text-center'>
             <tr>

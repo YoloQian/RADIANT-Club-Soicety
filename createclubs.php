@@ -211,7 +211,7 @@ if(isset($_POST['insert_submit'])){
       <input type="text" id="txtcname" name="txtcname" placeholder="Club Name">
 
       <label>Club Logo:</label>
-          <ul><input type="file" id="cimage" name="cimage" required /></ul>
+          <input class="form-control" type="file" id="cimage" name="cimage" required /><br>
 
       <label>Category:</label>
       <select id="txtcategory" name="txtcategory">
