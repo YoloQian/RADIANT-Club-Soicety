@@ -167,7 +167,7 @@
     </div>
     </div>
     
-    <!-- Event Details -->
+<!-- Event Details -->
     <br><br>
 
     <?php foreach($result as $r){ ?>
@@ -198,7 +198,6 @@
       <?php
         }
       ?>
-
     
     
 

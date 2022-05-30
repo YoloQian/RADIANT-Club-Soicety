@@ -105,9 +105,9 @@
 
               <ul class="nav nav-pills ">
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
-              <?php 
-              if(isset($_SESSION['username'])) {
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#0d6efd">
+                <?php
+                if(isset($_SESSION['username'])) {
                   echo $_SESSION['fullname'];
               }else {
                   echo "";
@@ -118,31 +118,30 @@
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
                   <!-- committee only-->
                   <?php
-
-                    $query = mysqli_query(
-                      $conn,"SELECT * FROM `students` INNER JOIN clubs ON students.clubid = clubs.cid WHERE username ='".$_SESSION['fullname']."' LIMIT 1");
-                        
-                      $res = mysqli_fetch_array($query);
-                      $clubid = $res['clubid'];
-
                     $result =mysqli_query($conn,"SELECT * from students");
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
-                      echo "<li><a class='dropdown-item' href='committee.php?cid=$clubid'>
+                      echo "<li><a class='dropdown-item' href='committee.php'>
                       <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
                     }
                     }
-                    
                     ?>
-                    <!-- Organzer only-->
-                  
-                  <!-- admin only see -->
+                    <!-- Organizer only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
+                      echo "<li><a class='dropdown-item' href='organizer.php'>
+                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                    }
+                    }
+                    ?>
+                  <!-- admin only -->
                   <?php
                     if($_SESSION['fullname'] == 'admin'){
                     echo "<li><a class='dropdown-item' href='adashboard.php'><i class='fa fa-cogs' aria-hidden='true'></i>&nbsp;Admin</a></li>";
                     }
                     ?> 
-                    <!-- end here-->
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php" style="color:#dc3545"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;LOG OUT</a></li>
               </ul>
@@ -351,7 +350,7 @@
   <br><hr><br>
   <div class="card mx-auto content" style="width:50%; font-family: Koulen,san-serif;">
   <br>
-  <img src="images/helpdesk.webp" class="card-img-top mx-auto" style="" alt="...">
+  <img src="images/helpdesk.webp" class="card-img-top mx-auto"alt="...">
   <div class="card-body mx-auto text-center">
     <h1 class="card-title">Need Any Help?</h1>
     <br>
