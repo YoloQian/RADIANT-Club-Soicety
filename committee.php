@@ -122,6 +122,7 @@
         $result =mysqli_query($conn,"SELECT * from clubs");
         $profile =mysqli_query($conn,"SELECT * from students");
             echo "<table border='1' class='table table-dark w-auto text-center'>
+            
             <tr>
                 <th>CID</th>
                 <th>Cname</th>
@@ -156,7 +157,8 @@
                 echo "</tr>";
                   }
               }
-            }}
+            }
+          }
             echo "</table>";
             mysqli_close($conn);
         ?>

@@ -19,6 +19,8 @@
     <title>About - RADIANT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -97,7 +99,7 @@
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
                       echo "<li><a class='dropdown-item' href='committee.php'>
-                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                      <i class='bi bi-card-checklist' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
                     }
                     }
                     ?>
@@ -107,7 +109,7 @@
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
                       echo "<li><a class='dropdown-item' href='organizer.php'>
-                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                      <i class='bi bi-calendar2-event' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
                     }
                     }
                     ?>

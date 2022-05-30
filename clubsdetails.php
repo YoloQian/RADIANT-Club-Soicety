@@ -10,7 +10,6 @@
       session_start();
 
 
-      include "logic.php";
   ?>
 
   <!DOCTYPE html>
@@ -19,11 +18,14 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <?php include "logic.php"; ?>
       <?php foreach($result as $r){ ?>
       <title><?php echo $r["cname"]; ?> - RADIANT</title>
       <?php } ?>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
       <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -145,6 +147,26 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                    <!-- committee only-->
+                    <?php
+                      $result =mysqli_query($conn,"SELECT * from students");
+                      while($row = mysqli_fetch_array($result)){
+                      if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                        echo "<li><a class='dropdown-item' href='committee.php'>
+                        <i class='bi bi-card-checklist' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                      }
+                      }
+                      ?>
+                      <!-- Organizer only-->
+                    <?php
+                      $result =mysqli_query($conn,"SELECT * from students");
+                      while($row = mysqli_fetch_array($result)){
+                      if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
+                        echo "<li><a class='dropdown-item' href='organizer.php'>
+                        <i class='bi bi-calendar2-event' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                      }
+                      }
+                      ?>
                     <!-- admin only see -->
                   <?php
                     if($_SESSION['fullname'] == 'admin'){
@@ -172,20 +194,22 @@
       </div>
       
       <!-- Show club information -->
+      
+      <?php include "logic.php"; ?>
 
       <?php foreach($result as $r){ ?>
         <form method="GET">
           <section class="bg-accent bg-position-center bg-size-cover py-3 py-sm-5" style="background-image: url(<?php echo 'clubswallpaper/' .$r["wallpaper"]; ?>); max-height: 100%">
             <div class="container py-5">
               <div class="row pt-md-5 pb-lg-5 justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
+                <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3 rounded-top" style="background-color: #333333;">
                   <h1 class="text-light pb-sm-3">
-                    <span class="fw-light" >Welcome to <b><?php echo $r["cname"]; ?></b><br></span>
+                    <span class="fw-light" style="font-size: 3rem; ">Welcome to <b><?php echo $r["cname"]; ?></b><br></span>
                   </h1>
                     <span class="d-inline-block h5 text-light fw-light mx-2 opacity-70" style="text-align: justify; text-justify: inter-word; ">
                       <?php echo $r['content']; ?>
                     </span>
-                  <input type="button" class="btn btn-warning btn-lg" value="JOIN US"  style="border-radius: 10%; margin-top:25px; font-weight: bold;"
+                  <input type="button" class="btn btn-warning btn-lg" value="JOIN US"  style="margin-top:25px; font-weight: bold;"
                    onClick='window.location.href="joinclub.php?cid=<?php echo $r["cid"];?>"'>
                 </div>
               </div>
@@ -199,18 +223,20 @@
     <!-- Show club events -->
     <?php
 
-        $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid ORDER BY events.eid desc limit 5 ";
+        $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid WHERE events.cid = clubs.cid ORDER BY events.eid desc limit 6 ";
         $result = mysqli_query($conn,$query);
 
-        if(isset($_REQUEST['eid'])){
-          $eid = $_REQUEST['eid'];
-          $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid ORDER BY events.eid desc limit 5 ";
+        if(isset($_REQUEST['cid'])){
+          $cid = $_REQUEST['cid'];
+          $query = "SELECT * FROM events INNER JOIN clubs ON events.cid = clubs.cid WHERE events.cid = $cid ORDER BY events.eid desc limit 6 ";
           $result = mysqli_query($conn,$query);
         }
 
     ?>
-
+    <br>
+    <h1 class="text-center">Events</h1>
     <div class="grid-container" style='margin: 30px 80px;'>
+    
         <?php 
         $result = mysqli_query($conn,$query);
         while ($row = mysqli_fetch_array($result)){
@@ -222,7 +248,7 @@
             <img src="<?php echo 'eventsimages/' .$r["eimage"]; ?>"><br>
             <h6 class="card-subtitle mt-2 text-muted">Posted on - 
                     <?php 
-                          echo $r["edate_time"];;
+                          echo $r["edate_time"];
                       ?>
                     </h6>
             <hr>
@@ -235,6 +261,7 @@
         }
         ?>
     </div>
+    <br>
      
     <!-- Show club contact -->
     <div class="container px-4 py-5" id="icon-grid">
@@ -244,15 +271,15 @@
         <div class="col d-flex align-items-start">
           <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
           <div class="followus">
-            <h4 class="fw-bold mb-0">Follow Us</h4>
-            <a href=" <?php echo 'http://www.' .$r["link"]; ?>" class="fa fa-facebook"></a>
+            <h4 class="fw-bold mb-0">Website:</h4>
+            <a style="font-size:1.7rem" href=" <?php echo 'http://www.' .$r["link"]; ?>" class="fa fa-link" target="_blank">&nbsp;Check&nbsp;Out</a>
           </div>
         </div>
         <div class="col d-flex align-items-start">
           <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
           <div>
             <h4 class="fw-bold mb-0">E-mail:</h4><br />
-            <p><?php echo $r["mail"]; ?></p>
+            <p style="font-size:1.3rem"><a href="mailto:<?php echo $r["mail"]; ?>?subject=subject text"><?php echo $r["mail"]; ?></a></p>
           </div>
         </div>
         
@@ -260,10 +287,10 @@
           <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
           <div>
             <h4 class="fw-bold mb-0">Venue:</h4><br />
-            <p><?php echo $r["venue"]; ?></p>
+            <p style="font-size:1.2rem"><?php echo $r["venue"]; ?></p>
             <br />
             <h4 class="fw-bold mb-0">Location:</h4><br />
-            <p><?php echo $r["location"]; ?></p>
+            <p style="font-size:1.2rem"><?php echo $r["location"]; ?></p>
           </div>
         </div> 
       </div>
