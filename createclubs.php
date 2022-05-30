@@ -32,6 +32,7 @@ if(isset($_POST['insert_submit'])){
 
     $query = "INSERT INTO `clubs`(`cid`, `cname`, `cimage`, `category`, `content`, `wallpaper`, `link`, `mail`, `venue`, `location`) 
     VALUES ('[value-1]','$cname','$cimage','$category','$content','$wallpaper','$link','$mail','$venue','$location')";
+    
 
     
     mysqli_query($conn, $query);
@@ -205,7 +206,7 @@ if(isset($_POST['insert_submit'])){
   <h3>Insert New Club</h3>
 
   <div class="container">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" id="a"class="needs-validation" novalidate="" enctype="multipart/form-data">
       <label>Club Name:</label>
       <input type="text" id="txtcname" name="txtcname" placeholder="Club Name">
 
@@ -240,14 +241,22 @@ if(isset($_POST['insert_submit'])){
       <label>Club Location:</label>
       <textarea id="txtlocation" name="txtlocation" placeholder="Location..." style="height:200px"></textarea>
 
-      <input type="submit" name="insert_submit" value="Submit">
+      <input type="submit" name="insert_submit"  onclick="alertmessage()" value="Submit">
     </form>
   </div>
 </div>
     </main>
   </div>
 </div>
+        <script>
+            var form = document.getElementById('a');
 
+            function alertmessage() {
+                if (form.checkValidity()) {
+                    alert("Club Created Successfully!");
+                }
+            }
+        </script>
 
     <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

@@ -169,7 +169,7 @@
                 echo "<td>" . $line['mail'] . "</td>";
                 echo "<td>" . $line['venue'] . "</td>";
                 echo "<td>" . $line['location'] . "</td>";  
-                echo "<td > <a class='btn btn-success' href='./ceditclub.php?id= ".$line['cid'] . "'>Edit</a> </td>";
+                echo "<td > <a class='btn btn-success' href='./ceditclub.php?id=".$line['cid'] . "'>Edit</a> </td>";
                 echo "</tr>";
                   }
               }

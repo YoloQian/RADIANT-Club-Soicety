@@ -1,4 +1,4 @@
-<?php
+s<?php
     $servername = "localhost";
     $user = "root";
     $password = "";
@@ -15,6 +15,14 @@
     }
     if(isset($_POST['submit'])){
         $idnum = $_POST['idnum'];
+        $cname = $_POST['clubname'];
+        $category = $_POST['category'];
+        $content = $_POST['content'];
+        $link = $_POST['link'];
+        $mail = $_POST['mail'];
+        $venue = $_POST['venue'];
+        $location = $_POST['location'];
+
         $cimage = $_FILES["cimage"]["name"];
         $tempcimage = $_FILES["cimage"]["tmp_name"];
             $cfolder = "clubsimages/" . $cimage;
@@ -23,12 +31,14 @@
         $tempwallpaper = $_FILES["wallpaper"]["tmp_name"];
             $wfolder = "clubswallpaper/" . $wallpaper;
         
-        $query = "UPDATE `clubs` SET `cimage` = '$cimage', `wallpaper`= '$wallpaper' WHERE cid=$idnum";
+        $query = "UPDATE `clubs` SET `cid`='[value-1]',`cname`='$cname',`cimage`='$cimage',`category`='$category',
+        `content`='$content',`wallpaper`='$wallpaper',`link`='$link',`mail`='$mail',`venue`='$venue',`location`='$location' WHERE cid=$idnum";
         
         mysqli_query($conn, $query);
 
         if (move_uploaded_file($tempcimage, $cfolder)) {
             $msg = "Club logo uploaded successfully";
+            
         }else {
             $msg = "Failed to uplaod Club logo";
         }
@@ -40,6 +50,7 @@
         }
         mysqli_close($conn);
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +119,7 @@
             <div class="p-3 py-5 border border-dark">
             <img class="d-block mx-auto mb-4" src="<?php echo 'clubsimages/' .$row["cimage"]; ?>" alt="" width="130" height="130">
             <img class="d-block mx-auto mb-4" src="<?php echo 'clubswallpaper/' .$row["wallpaper"]; ?>" alt="" width="500" height="200">
-            <form action="./cclubmodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();" enctype="multipart/form-data">
+            <form action="./cclubmodify.php?id=<?=$id ?>" method="POST" onSubmit="return validate();">
                 
                 <div class="row mt-2">
                   <div class="col-md-6">
@@ -128,12 +139,11 @@
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Club Image</label>
-                        <ul><input type="file" id="cimage" name="cimage"/></ul>
-                        
+                        <ul><input type="file" id="cimage" name="cimage"  /></ul>
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Wallpaper</label>
-                        <input type="text" name="wallpaper" class="form-control"  placeholder="" value="<?= $row["wallpaper"]?>" >
+                        <ul><input type="file" id="cimage" name="cimage"  /></ul>
                     </div>
                     <div class="col-md-12">
                         <label class="labels">Description</label>
@@ -162,7 +172,7 @@
                     </div>
                     <div class="col-md-2">
                     <br>
-                    <input class="btn btn-warning" name="submit" type="submit" value="Submit"></button>
+                    <input class="btn btn-warning" type="submit" value="Submit"></button>
                     </div>
                     <div class="col-md-2">
                             <br>

@@ -209,7 +209,7 @@
       }else if($id=='community centric and voluntary'){
         $query = "SELECT * FROM clubs WHERE category='Community Centric & Voluntary' ";
       }else if($id=='cultural and international communities'){
-        $query = "SELECT * FROM clubs WHERE category='Cultural & International Communities' ";
+        $query = "SELECT * FROM clubs WHERE category='Cultural & Internation Communities' ";
       }else {
           $query = "SELECT * FROM clubs ";
       }
