@@ -320,7 +320,7 @@
             <div class="col-sm">
               <div class="carousel-cell p-2">
                 <div class="card  mx-2" style="width: 18rem;">
-                  <img class="card-img-top" src="eventsimages/<?php echo $image; ?>" alt="Card image cap">
+                  <img class="card-img-top" src="eventsimages/<?php echo $image; ?>" height="250px" width="300px" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">
                       <a href="eventsdetails.php?eid=<?php echo $blog_id?>" class="blog-link">
@@ -329,7 +329,7 @@
                       ?>
                     </h5>
                     </a>
-                    <h6 class="card-subtitle mt-2 text-muted">Posted on - 
+                    <h6 class="card-subtitle mt-2 text-muted" style="font-size: .8rem;">Posted on - 
                     <?php 
                           echo $blog_date;
                       ?>
