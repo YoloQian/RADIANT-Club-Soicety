@@ -41,6 +41,9 @@ s<?php
       margin: auto;
       padding: 10px;
       }
+      label{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
@@ -55,9 +58,9 @@ s<?php
     </div>
     
     <!--Profile-->
-    <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
-    <div class="row d-flex justify-content-center" style="width: 1300px; ">
-        <div class="col-md-3 border-right">
+    <div class="container rounded bg-white mb-5 content" style="font-family: Source Sans Pro,san-serif;">
+    <div class="justify-content-center" style="width: 1300px; ">
+        <div class="border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">                
             <span class="font-weight-bold" style="font-size: 1.3rem;">
                 <br>
@@ -71,12 +74,15 @@ s<?php
             
             ?>
             
-        <div class="col-md-5 border-right"> 
-            <div class="p-3 py-5">
+        <div class="col-md-7 content"> 
+             <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right" style="font-size:2.5rem"><b>Club Information</b></h4>
+            </div>
+            <div class="p-3 py-5 border border-dark">
+            <img class="d-block mx-auto mb-4" src="<?php echo 'clubsimages/' .$row["cimage"]; ?>" alt="" width="130" height="130">
+            <img class="d-block mx-auto mb-4" src="<?php echo 'clubswallpaper/' .$row["wallpaper"]; ?>" alt="" width="500" height="200">
             <form action="./cclubmodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right" style="font-size:2.5rem"><b>Club Profile</b></h4>
-                </div>
+                
                 <div class="row mt-2">
                   <div class="col-md-6">
                       <label class="labels">Club ID</label>
@@ -84,14 +90,7 @@ s<?php
                   </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6">  
-                        <label class="labels">Club Image</label>
-                        <input type="text" name="clubimage" class="form-control"  placeholder="" value="<?= $row["cimage"]?>" >
-                    </div>
-                    <div class="col-md-6">  
-                        <label class="labels">Wallpaper</label>
-                        <input type="text" name="wallpaper" class="form-control"  placeholder="" value="<?= $row["wallpaper"]?>" >
-                    </div>
+                   
                     <div class="col-md-6">  
                         <label class="labels">Club Name</label>
                         <input type="text" name="clubname" class="form-control"  placeholder="" value="<?= $row["cname"]?>" >
@@ -100,11 +99,19 @@ s<?php
                         <label class="labels">Category</label>
                         <input type="text" name="category" class="form-control" placeholder="" value="<?= $row["category"]?>" >
                     </div>
-                    <div class="col-md-6">
-                        <label class="labels">Content</label>
-                        <input type="text" name="content" class="form-control" placeholder="" value="<?= $row["content"]?>">
+                    <div class="col-md-6">  
+                        <label class="labels">Club Image</label>
+                        <input type="text" name="clubimage" class="form-control"  placeholder="" value="<?= $row["cimage"]?>" >
                     </div>
                     <div class="col-md-6">  
+                        <label class="labels">Wallpaper</label>
+                        <input type="text" name="wallpaper" class="form-control"  placeholder="" value="<?= $row["wallpaper"]?>" >
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Description</label>
+                        <textarea type="text" name="content" class="form-control" placeholder="" style="height:200px" value=""><?= $row["content"]?></textarea>
+                    </div>
+                    <div class="col-md-12">  
                         <label class="labels">Link</label>
                         <input type="text" name="link" class="form-control" placeholder="" value="<?= $row["link"]?>" >
                     </div>
@@ -122,13 +129,17 @@ s<?php
                         <input type="text" name="location" class="form-control" value="<?= $row["location"]?>">
                     </div>
                     <div class="col-md-6">
-                    <br>
-                    <input type="submit" value="Submit"></button>
+                        <label class="labels" hidden>----</label>
+                        <input type="text" name="location" class="form-control" value="" hidden>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                     <br>
-                    <button type="submit" form='' onclick="location.href='committee.php'" id= "$row['sid']"  value="Submit">Back</button>
+                    <input class="btn btn-warning" type="submit" value="Submit"></button>
                     </div>
+                    <div class="col-md-2">
+                            <br>
+                            <input type="button" class="btn btn-info" value="Go back" onclick="history.back()">
+                        </div>
                 </div>
     </div>
                 <?php

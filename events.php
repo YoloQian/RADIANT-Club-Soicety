@@ -8,7 +8,7 @@
     
 
     session_start();
-    $query = "SELECT * FROM events";
+    $query = ("SELECT * FROM events ORDER BY eid DESC");
     $result = mysqli_query($conn,$query);
 
     if(isset($_REQUEST['eid'])){
