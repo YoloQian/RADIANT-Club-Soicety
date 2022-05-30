@@ -58,30 +58,10 @@
     <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
     <div class="row d-flex justify-content-center" style="width: 1300px; ">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <!-- Update Photo-->
-            <form method="post">
-            <?php   
-                $sql_query = "SELECT * FROM students WHERE sid = $id";
-                $result = mysqli_query($conn, $sql_query);
-                while ($row = mysqli_fetch_array($result)) {
-            
-            ?>
-                
-                <img height='150'; width='150' src="<?php echo 'studentsimages/' .$row['simage']; ?>">
-                <br>
-                <input type="file" id="uploadfile" name="uploadfile" 
-                        value= "<?php echo "<img height='150'; width='150'; src=" . 'studentsimages/' .$row['simage']. ">" ?>" />
-                <input type="submit" name="update_submit" value="Update Record" />
-                
-            </form>
-                
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">                
             <span class="font-weight-bold" style="font-size: 1.3rem;">
                 <br>
             </span>
-            <?php
-             }
-            ?>
             </div>
             </div>
             <?php   
@@ -93,9 +73,9 @@
             
         <div class="col-md-5 border-right"> 
             <div class="p-3 py-5">
-            <form action="./usermodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
+            <form action="./cusermodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right" style="font-size:2.5rem"><b>User Profile</b></h4>
+                    <h4 class="text-right" style="font-size:2.5rem"><b>User Profile - Assign Role</b></h4>
                 </div>
                 <div class="row mt-2">
                   <div class="col-md-6">
@@ -110,59 +90,59 @@
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Password</label>
-                        <input type="text" name="password" class="form-control" placeholder="" value="<?= $row["password"]?>" >
+                        <input type="text" name="password" class="form-control" readonly placeholder="" value="<?= $row["password"]?>" >
                     </div>
                     <div class="col-md-6">
                         <label class="labels">First Name</label>
-                        <input type="text" name="fname" class="form-control" placeholder="" value="<?= $row["Fname"]?>">
+                        <input type="text" name="fname" class="form-control" readonly placeholder="" value="<?= $row["Fname"]?>">
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Last Name</label>
-                        <input type="text" name="lname" class="form-control" placeholder="" value="<?= $row["Lname"]?>" >
+                        <input type="text" name="lname" class="form-control" readonly placeholder="" value="<?= $row["Lname"]?>" >
                     </div>
 
                     <div class="col-md-6">  
                         <label class="labels">Student ID</label>
-                        <input type="text" name="studentid" class="form-control" placeholder="" value="<?= $row["studentid"]?>" >
+                        <input type="text" name="studentid" class="form-control" readonly placeholder="" value="<?= $row["studentid"]?>" >
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Intake</label>
-                        <input type="text" name="intake" class="form-control" placeholder="" value="<?= $row["intake"]?>" >
+                        <input type="text" name="intake" class="form-control" readonly placeholder="" value="<?= $row["intake"]?>" >
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Contact Info</label>
-                        <input type="text" name="contact" class="form-control" value="<?= $row["mobile_num"]?>">
+                        <input type="text" name="contact" class="form-control" readonly value="<?= $row["mobile_num"]?>">
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Email</label>
-                        <input type="text" name="email" class="form-control" value="<?= $row["email"]?>">
+                        <input type="text" name="email" class="form-control" readonly value="<?= $row["email"]?>">
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">IC / Passport</label>
-                        <input type="text" name="ic_passport" class="form-control" placeholder="" readonly value="<?= $row["ic_passport"]?>" >
+                        <input type="text" name="ic_passport" class="form-control" readonly placeholder="" readonly value="<?= $row["ic_passport"]?>" >
                     </div>
 
                     <div class="col-md-6">  
                         <label class="labels">Gender</label>
-                        <input type="text" name="gender" class="form-control" placeholder=""  value="<?= $row["gender"]?>" >
+                        <input type="text" name="gender" class="form-control" readonly placeholder=""  value="<?= $row["gender"]?>" >
                     </div>
                 
                     <div class="col-md-6">
                         <label class="labels">Birthday</label>
-                        <input type="date" name="birthday" class="form-control" readonly value="<?= $row["birth_date"]?>">
+                        <input type="date" name="birthday" class="form-control" readonly readonly value="<?= $row["birth_date"]?>">
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Country</label>
-                        <input type="text" name="Country" class="form-control" readonly value="<?= $row["country"]?>">
+                        <input type="text" name="Country" class="form-control" readonly readonly value="<?= $row["country"]?>">
                     </div>
                 
                     <div class="col-md-6">
                         <label class="labels">Club ID</label>
-                        <input type="text" name="clubid" class="form-control" value="<?= $row["clubid"]?>">
+                        <input type="text" name="clubid" class="form-control" readonly value="<?= $row["clubid"]?>">
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Role</label>
-                        <input type="text" name="role" class="form-control" placeholder="" value="<?= $row["role"]?>" >
+                        <input type="text" name="role" class="form-control"  placeholder="" value="<?= $row["role"]?>" >
                     </div>
                     <div class="col-md-6">
                     <br>
@@ -170,7 +150,7 @@
                     </div>
                     <div class="col-md-6">
                     <br>
-                    <button type="submit" form='' onclick="location.href='aduser.php'" id= "$row['sid']"  value="Submit">Back</button>
+                    <button type="submit" form='' onclick="location.href='cmember.php'" id= "$row['sid']"  value="Submit">Back</button>
                     </div>
                 </div>
     </div>

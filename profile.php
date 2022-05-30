@@ -294,11 +294,8 @@
                     </div>
                 
                     <div class="col-md-6">  
-                        <label class="labels">Club</label>
-                        <?php "SELECT * FROM students INNER JOIN clubs ON students.cid = clubs.cid ORDER BY events.eid desc limit 5";
-                        $clubname = $res['cname'];
-                        echo "<input type="text" name="club" class="form-control" placeholder="" readonly value="$cname" >";
-                         ?>
+                        <label class="labels">Club ID</label>
+                        <input type="text" name="clubid" class="form-control" placeholder="" readonly value="<?php echo $row["clubid"]?>" >
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Role</label>

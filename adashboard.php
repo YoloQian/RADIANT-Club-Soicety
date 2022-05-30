@@ -147,7 +147,7 @@
 
       <div class="table-responsive col-md-2">
       <?php       
-        $result =mysqli_query($conn,"SELECT COUNT(*) FROM `students` WHERE `club` IS NOT NULL");
+        $result =mysqli_query($conn,"SELECT COUNT(*) FROM `students` WHERE `clubid` IS NOT NULL");
             echo "<table border='1' class='table table-dark w-100 text-center'>
             <tr>
                 <th>Student With Club</th>
@@ -162,7 +162,7 @@
 
       <div class="table-responsive col-md-2">
       <?php       
-        $result =mysqli_query($conn,"SELECT COUNT(*) FROM `students` WHERE `club` IS NULL");
+        $result =mysqli_query($conn,"SELECT COUNT(*) FROM `students` WHERE `clubid` IS NULL");
             echo "<table border='1' class='table table-dark w-100 text-center'>
             <tr>
                 <th>Student Without Club</th>
@@ -210,7 +210,7 @@
 
       <div class="table-responsive col-md-2">
       <?php       
-        $result =mysqli_query($conn,"SELECT * from students");
+        $result =mysqli_query($conn,"SELECT * from events");
             echo "<table border='1' class='table table-dark w-100 text-center'>
             <tr>
                 <th>Total Ongoing Event</th>
@@ -225,7 +225,7 @@
 
       <div class="table-responsive col-md-2">
       <?php       
-        $result =mysqli_query($conn,"SELECT * from students");
+        $result =mysqli_query($conn,"SELECT * from events");
             echo "<table border='1' class='table table-dark w-100 text-center'>
             <tr>
                 <th>Total Annoucement</th>

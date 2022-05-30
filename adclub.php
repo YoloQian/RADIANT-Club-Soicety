@@ -140,7 +140,8 @@
                 <th>Mail</th>
                 <th>Venue</th>
                 <th>Location</th>
-                <th>Action</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>";
 
             while($row = mysqli_fetch_array($result))
@@ -156,6 +157,7 @@
             echo "<td>" . $row['mail'] . "</td>";
             echo "<td>" . $row['venue'] . "</td>";
             echo "<td>" . $row['location'] . "</td>";
+            echo "<td > <a class='btn btn-info' href='./editclub.php?id= ".$row['cid'] . "'>Edit</a> </td>";
             echo "<td > <a class='btn btn-danger' href='./deleteclub.php?id= ".$row['cid'] . "'>Delete</a> </td>";
             echo "</tr>";
             }

@@ -141,7 +141,7 @@
                 <th>IC/Passport</th>
                 <th>Country</th>
                 <th>Role</th>
-                <th>Club/Society</th>
+                <th>Club/Society ID</th>
                 <th>Edit User</th>
                 <th>Remove User</th>
             </tr>";
@@ -162,7 +162,7 @@
             echo "<td>" . $row['ic_passport'] . "</td>";
             echo "<td>" . $row['country'] . "</td>";
             echo "<td>" . $row['role'] . "</td>";
-            echo "<td>" . $row['club'] . "</td>";
+            echo "<td>" . $row['clubid'] . "</td>";
             echo "<td> <a class='btn btn-info' href='./edituser.php?id= ".$row['sid'] . "'>Edit</a> </td>";
             echo "<td> <a class='btn btn-danger' href='./deleteuser.php?id= ".$row['sid'] . "'>Delete</a> </td>";
             echo "</tr>";

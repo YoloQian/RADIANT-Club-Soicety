@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Committee - RADIANT</title>
+    <title>Organizer - RADIANT</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -82,21 +82,9 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="committee.php">
+            <a class="nav-link active" aria-current="page" href="organizer.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-              Club
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cmember.php">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-              Club Member
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="crequest.php">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              Join Request
+              Event
             </a>
           </li>
         </ul>
@@ -105,8 +93,9 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Club Member</h1>
+        <h1 class="h2">Event</h1>
         <div class="btn-toolbar mb-2 mb-md-0"><!--below here-->
+        <button type="btn" class="btn btn-sm btn-outline-secondary" onclick="location.href='postevent.php'">Post Event</button>
         <div class="btn-group me-2">
           </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -115,63 +104,48 @@
         </div>
       </div>
 
-<!-- user table -->
-<div class="table-responsive">
-      <?php
-        $result =mysqli_query($conn,"SELECT * from students");
+      <!-- Event table -->
+      <div class="table-responsive">
+        <!--Table list from database for Events-->
+        <?php       
+        $result =mysqli_query($conn,"SELECT * from events");
         $profile =mysqli_query($conn,"SELECT * from students");
-            echo "<table border='1' class='table table-dark table-striped text-center'>
+            echo "<table border='1' class='table table-dark w-auto text-center'>
             <tr>
-                <th>SID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Fname</th>
-                <th>Lname</th>
-                <th>Intake</th>
-                <th>Mobile.No</th>
-                <th>Gender</th>
-                <th>Birth_date</th>
-                <th>IC/Passport</th>
-                <th>Country</th>
-                <th>Role</th>
-                <th>Club/Society ID</th>
-                <th>Edit User</th>
-                <th>Remove User</th>
+                <th>EID</th>
+                <th>Etitle</th>
+                <th>Eimage</th>
+                <th>Announcement</th>
+                <th>Description</th>
+                <th>CID</th>
+                <th>Cname</th>
+                <th>Date / Time</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>";
 
-            while($row = mysqli_fetch_array($profile))
-            {if($row['username'] == $_SESSION['fullname'])
-              {while($line = mysqli_fetch_array($result))
-                {if($line['clubid'] == $row['15'])
-                  {
+            while($row = mysqli_fetch_array($result))
+            {
             echo "<tr>";
-            echo "<td>" . $line['sid'] . "</td>";
-            echo "<td>" . $line['username'] . "</td>";
-            echo "<td>" . $line['email'] . "</td>";
-            echo "<td>" . $line['password'] . "</td>";
-            echo "<td>" . $line['Fname'] . "</td>";
-            echo "<td>" . $line['Lname'] . "</td>";
-            echo "<td>" . $line['intake'] . "</td>";
-            echo "<td>" . $line['mobile_num'] . "</td>";
-            echo "<td>" . $line['gender'] . "</td>";
-            echo "<td>" . $line['birth_date'] . "</td>";
-            echo "<td>" . $line['ic_passport'] . "</td>";
-            echo "<td>" . $line['country'] . "</td>";
-            echo "<td>" . $line['role'] . "</td>";
-            echo "<td>" . $line['clubid'] . "</td>";
-            echo "<td> <a class='btn btn-info' href='./cedituser.php?id= ".$line['sid'] . "'>Edit</a> </td>";
-            echo "<td> <a class='btn btn-danger' href='./cremoveuser.php?id= ".$line['sid'] . "'>Remove</a> </td>";
+            echo "<td>" . $row['eid'] . "</td>";
+            echo "<td>" . $row['etitle'] . "</td>";
+            echo "<td>" . $row['eimage'] . "</td>";
+            echo "<td>" . $row['announcement'] . "</td>";
+            echo "<td>" . $row['description'] . "</td>";
+            echo "<td>" . $row['cid'] . "</td>";
+            echo "<td>" . $row['cname'] . "</td>";
+            echo "<td>" . $row['edate_time'] . "</td>";
+            echo "<td > <a class='btn btn-success' href='./editevent.php?id= ".$row['eid'] . "'>Edit</a> </td>";
+            echo "<td > <a class='btn btn-danger' href='./deleteevent.php?id= ".$row['eid'] . "'>Delete</a> </td>";
             echo "</tr>";
             }
-            }
-          }}
             echo "</table>";
             mysqli_close($conn);
         ?>
       </div>
     </main>
   </div>
+
 </div>
 
 
