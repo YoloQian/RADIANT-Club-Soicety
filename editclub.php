@@ -41,6 +41,9 @@
       margin: auto;
       padding: 10px;
       }
+      label{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
@@ -55,46 +58,58 @@
     </div>
     
     <!--Profile-->
-    <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
-    <div class="row d-flex justify-content-center" style="width: 1300px; ">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">                
-            <span class="font-weight-bold" style="font-size: 1.3rem;">
-                <br>
-            </span>
-            </div>
-            </div>
-            <?php   
+    <?php   
                 $sql_query = "SELECT * FROM clubs WHERE cid = $id";
                 $result = mysqli_query($conn, $sql_query);
                 while ($row = mysqli_fetch_array($result)) {
             
             ?>
+    <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
+    <div class="row d-flex justify-content-center" style="width: 1300px; ">
+        <div class="col-md-3 border-right">
+            <div class="align-items-center text-center p-3 py-2">            
+            <span class="font-weight-bold" style="font-size: 1.3rem;">
+                <img class="d-block mx-auto mb-4" src="<?php echo 'clubsimages/' .$row["cimage"]; ?>" alt="" width="130" height="130">
+
+            </span>
+            </div>
+            </div>
             
-        <div class="col-md-5 border-right"> 
+
+    
+        <div class="col-md-9 border-right"> 
             <div class="p-3 py-5">
             <form action="./clubmodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right" style="font-size:2.5rem"><b>Club Profile</b></h4>
                 </div>
                 <div class="row mt-2">
+                <img class="d-block mx-auto mb-4" src="<?php echo 'clubswallpaper/' .$row["wallpaper"]; ?>" alt="" width="500" height="300">
                   <div class="col-md-6">
                       <label class="labels">ID</label>
                       <input type="text" name="idnum" class="form-control" placeholder="" readonly value="<?= $row["cid"]?>">
                   </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">  
+                  <div class="col-md-6">  
                         <label class="labels">Club Name</label>
                         <input type="text" name="clubname" class="form-control"  placeholder="" value="<?= $row["cname"]?>" >
                     </div>
+                </div>
+                <div class="row mt-2">
+                    
                     <div class="col-md-6">  
                         <label class="labels">Category</label>
-                        <input type="text" name="category" class="form-control" placeholder="" value="<?= $row["category"]?>" >
+                        <select id="category" name="category" class="form-control" value="<?= $row["category"]?>">
+                            <option value="Course-based & Academic">Course-based & Academic</option>
+                            <option value="General Interest">General Interest</option>
+                            <option value="Performing & Creative">Performing & Creative</option>
+                            <option value="Recreation, Sport & Games">Recreation, Sport & Games</option>
+                            <option value="Community Centric & Voluntary">Community Centric & Voluntary</option>
+                            <option value="Cultural & Internation Communities">Cultural & Internation Communities</option>
+                        </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label class="labels">Content</label>
-                        <input type="text" name="content" class="form-control" placeholder="" value="<?= $row["content"]?>">
+                        <textarea type="text" name="content" class="form-control" placeholder="" style="height:500px" value=""><?= $row["content"]?></textarea>
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Link</label>
@@ -113,16 +128,16 @@
                         <label class="labels">Location</label>
                         <input type="text" name="location" class="form-control" value="<?= $row["location"]?>">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                     <br>
-                    <input type="submit" value="Submit"></button>
+                    <input type="submit" class="btn btn-warning" value="Submit"></button>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                     <br>
-                    <button type="submit" form='' onclick="location.href='adclub.php'" id= "$row['sid']"  value="Submit">Back</button>
+                    <button type="submit" class="btn btn-info" form='' onclick="location.href='adclub.php'" id= "$row['sid']"  value="Submit">Back</button>
                     </div>
                 </div>
-    </div>
+                </div>
                 <?php
         }
         ?>

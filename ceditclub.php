@@ -135,7 +135,14 @@ s<?php
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Category</label>
-                        <input type="text" name="category" class="form-control" placeholder="" value="<?= $row["category"]?>" >
+                        <select id="category" name="category" class="form-control" value="<?= $row["category"]?>" >
+                            <option value="Course-based & Academic">Course-based & Academic</option>
+                            <option value="General Interest">General Interest</option>
+                            <option value="Performing & Creative">Performing & Creative</option>
+                            <option value="Recreation, Sport & Games">Recreation, Sport & Games</option>
+                            <option value="Community Centric & Voluntary">Community Centric & Voluntary</option>
+                            <option value="Cultural & Internation Communities">Cultural & Internation Communities</option>
+                        </select>
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Club Image</label>

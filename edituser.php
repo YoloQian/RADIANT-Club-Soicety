@@ -41,6 +41,9 @@
       margin: auto;
       padding: 10px;
       }
+      label{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
@@ -55,35 +58,8 @@
     </div>
     
     <!--Profile-->
-    <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
-    <div class="row d-flex justify-content-center" style="width: 1300px; ">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <!-- Update Photo-->
-            <form method="post">
-            <?php   
-                $sql_query = "SELECT * FROM students WHERE sid = $id";
-                $result = mysqli_query($conn, $sql_query);
-                while ($row = mysqli_fetch_array($result)) {
-            
-            ?>
-                
-                <img height='150'; width='150' src="<?php echo 'studentsimages/' .$row['simage']; ?>">
-                <br>
-                <input type="file" id="uploadfile" name="uploadfile" 
-                        value= "<?php echo "<img height='150'; width='150'; src=" . 'studentsimages/' .$row['simage']. ">" ?>" />
-                <input type="submit" name="update_submit" value="Update Record" />
-                
-            </form>
-                
-            <span class="font-weight-bold" style="font-size: 1.3rem;">
-                <br>
-            </span>
-            <?php
-             }
-            ?>
-            </div>
-            </div>
+    <div class="container rounded bg-white mt-5 mb-5 content " style="font-family: Source Sans Pro,san-serif;">
+    <div class="row d-flex justify-content-center ">
             <?php   
                 $sql_query = "SELECT * FROM students WHERE sid = $id";
                 $result = mysqli_query($conn, $sql_query);
@@ -91,7 +67,7 @@
             
             ?>
             
-        <div class="col-md-5 border-right"> 
+        <div class="col-md-5 border-right border border-dark" style="width: 1000px; "> 
             <div class="p-3 py-5">
             <form action="./usermodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -159,18 +135,31 @@
                     <div class="col-md-6">
                         <label class="labels">Club ID</label>
                         <input type="text" name="clubid" class="form-control" value="<?= $row["clubid"]?>">
+                        <?php 
+                        $query = mysqli_query(
+                            $conn,"SELECT clubs.cname FROM clubs INNER JOIN students ON clubs.cid = students.clubid");
+                        $res = mysqli_fetch_array($query);
+                        $clubname = $res['cname'];
+                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+
+                         ?>
                     </div>
                     <div class="col-md-6">  
-                        <label class="labels">Role</label>
-                        <input type="text" name="role" class="form-control" placeholder="" value="<?= $row["role"]?>" >
+                    <label class="labels">Role</label>
+                        <br>
+                        <select type="text" class="form-control" id="role" name="role" value="<?= $row["role"]?>">
+                            <option value="Committee">Committee</option>
+                            <option value="Organizer">Organizer</option>
+                            <option value="Students">Students</option>
+                        </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                     <br>
-                    <input type="submit" value="Submit"></button>
+                    <input type="submit" class="btn btn-warning" value="Submit"></button>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                     <br>
-                    <button type="submit" form='' onclick="location.href='aduser.php'" id= "$row['sid']"  value="Submit">Back</button>
+                    <button type="submit" class="btn btn-info"form='' onclick="location.href='aduser.php'" id= "$row['sid']"  value="Submit">Back</button>
                     </div>
                 </div>
     </div>
