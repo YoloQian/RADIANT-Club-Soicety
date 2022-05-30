@@ -1,4 +1,4 @@
-s<?php
+<?php
     $servername = "localhost";
     $user = "root";
     $password = "";
@@ -12,6 +12,33 @@ s<?php
         $id = $_GET['id'];
     }else{
         die('id not provided');
+    }
+    if(isset($_POST['submit'])){
+        $idnum = $_POST['idnum'];
+        $cimage = $_FILES["cimage"]["name"];
+        $tempcimage = $_FILES["cimage"]["tmp_name"];
+            $cfolder = "clubsimages/" . $cimage;
+
+        $wallpaper = $_FILES["wallpaper"]["name"];
+        $tempwallpaper = $_FILES["wallpaper"]["tmp_name"];
+            $wfolder = "clubswallpaper/" . $wallpaper;
+        
+        $query = "UPDATE `clubs` SET `cimage` = '$cimage', `wallpaper`= '$wallpaper' WHERE cid=$idnum";
+        
+        mysqli_query($conn, $query);
+
+        if (move_uploaded_file($tempcimage, $cfolder)) {
+            $msg = "Club logo uploaded successfully";
+        }else {
+            $msg = "Failed to uplaod Club logo";
+        }
+    
+        if (move_uploaded_file($tempwallpaper, $wfolder)) {
+            $msg = "Club wallpaper uploaded successfully";
+        }else {
+            $msg = "Failed to uplaod Club wallpaper";
+        }
+        mysqli_close($conn);
     }
 ?>
 
@@ -81,7 +108,7 @@ s<?php
             <div class="p-3 py-5 border border-dark">
             <img class="d-block mx-auto mb-4" src="<?php echo 'clubsimages/' .$row["cimage"]; ?>" alt="" width="130" height="130">
             <img class="d-block mx-auto mb-4" src="<?php echo 'clubswallpaper/' .$row["wallpaper"]; ?>" alt="" width="500" height="200">
-            <form action="./cclubmodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
+            <form action="./cclubmodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();" enctype="multipart/form-data">
                 
                 <div class="row mt-2">
                   <div class="col-md-6">
@@ -101,7 +128,8 @@ s<?php
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Club Image</label>
-                        <input type="text" name="clubimage" class="form-control"  placeholder="" value="<?= $row["cimage"]?>" >
+                        <ul><input type="file" id="cimage" name="cimage"/></ul>
+                        
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Wallpaper</label>
@@ -134,7 +162,7 @@ s<?php
                     </div>
                     <div class="col-md-2">
                     <br>
-                    <input class="btn btn-warning" type="submit" value="Submit"></button>
+                    <input class="btn btn-warning" name="submit" type="submit" value="Submit"></button>
                     </div>
                     <div class="col-md-2">
                             <br>

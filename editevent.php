@@ -113,14 +113,15 @@
                             <label class="labels">Club Name</label>
                             <input type="text" name="clubname" class="form-control" placeholder="" value="<?= $row["cname"]?>" >
                         </div>
+                        <div class="col-md-6">
+                            <label class="labels">Event Images:</label>
+                            <ul><input type="file" id="eimage" name="eimage"/></ul>
+                        </div>
                         <div class="col-md-6">  
                             <label class="labels">Date / Time</label>
                             <input type="text" name="datetime" class="form-control" readonly placeholder="" value="<?= $row["edate_time"]?>" >
                         </div>
-                        <div class="col-md-6">
-                            <label class="labels" hidden>----</label>
-                            <input type="text" name="location" class="form-control" value="" hidden>
-                        </div>
+                        
                         <div class="col-md-2">
                             <br>
                             <input type="submit" class="btn btn-warning" value="Submit"></button>
