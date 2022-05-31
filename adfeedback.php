@@ -141,6 +141,7 @@
       </div>    
       <!--Table-->
       <div class="table-responsive">
+      <span class="text-muted">*Click Email Address to Reply</span>
         <!--Table list from database for feedback-->
         <?php
         

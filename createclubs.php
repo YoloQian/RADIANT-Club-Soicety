@@ -243,7 +243,7 @@ if(isset($_POST['insert_submit'])){
       <textarea id="txtcontent" name="txtcontent" placeholder="Write content..." style="height:200px"></textarea>
 
       <label>Club Wallpaper:</label>
-          <ul><input type="file" id="wallpaper" name="wallpaper" required /></ul>
+          <input class="form-control" type="file" id="wallpaper" name="wallpaper" required /><br>
 
       <label>Club Website Link:</label>
       <textarea id="txtlink" name="txtlink" placeholder="http://www." style="height:200px"></textarea>
