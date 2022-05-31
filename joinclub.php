@@ -16,6 +16,22 @@ if(!isset($_SESSION['username'])){
         mysql_close();
 }
 
+$sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
+            $result = mysqli_query($conn, $sql_query);
+            while ($row = mysqli_fetch_array($result)) {
+            $cid = $row["clubid"];
+            
+            
+// Evaluates to true because $var is empty
+if (!empty($cid)) {
+  $message2 = '-- Sorry You Are Not Allowed to Access This Page --\n It is Because You Already Have a Club \n Please Inform Committee of Your Club, If You Want to Quit Current Club.';
+  echo "<SCRIPT> 
+          alert('$message2')
+          window.location.replace('clubs.php?id=');
+      </SCRIPT>";
+}
+}
+
 
 //
 if(isset($_POST['submit'])){
