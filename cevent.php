@@ -156,6 +156,7 @@
                 <th>CID</th>
                 <th>Cname</th>
                 <th>Date / Time</th>
+                <th>Post Announcement</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>";
@@ -174,6 +175,7 @@
                 echo "<td>" . $line['cid'] . "</td>";
                 echo "<td>" . $line['cname'] . "</td>";
                 echo "<td>" . $line['edate_time'] . "</td>";
+                echo "<td > <a class='btn btn-info' href='./eannoucement.php?id= ".$line['eid'] . "'>Post</a> </td>";
                 echo "<td > <a class='btn btn-success' href='./editevent.php?id= ".$line['eid'] . "'>Edit</a> </td>";
                 echo "<td > <a class='btn btn-danger' href='./deleteevent.php?id= ".$line['eid'] . "'>Delete</a> </td>";
                 echo "</tr>";
