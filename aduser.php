@@ -138,8 +138,10 @@
           </button>
         </div>
       </div>    
-<!-- user table -->
+    <!-- user table -->
+    <button onclick="location.href='createusers.php'" type="button" class="btn btn-success justify-content-end">Add New User</button>
       <div class="table-responsive">
+        <br>
       <?php
         $result =mysqli_query($conn,"SELECT * from students");
             echo "<table border='1' class='table table-dark table-striped text-center'>

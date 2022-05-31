@@ -23,7 +23,7 @@ session_start();
     $cid = $_POST['cid'];
     $cname = $_POST['cname'];
     //create your insert sql
-    $query="INSERT INTO `events`(`eid`, `etitle`, `eimage`, `announcement`, `description`, `cid`, `cname`) VALUES ('[value-1]','$etitle','$eimage','$eannouncement','$edescription','$cid','$cname')";
+    $query="INSERT INTO `applyevent`(`aeid`, `etitle`, `eimage`, `announcement`, `description`, `cid`, `cname`) VALUES ('[value-1]','$etitle','$eimage','$eannouncement','$edescription','$cid','$cname')";
     mysqli_query($conn, $query);
     if (move_uploaded_file($tempeimage, $efolder)) {
         $msg = "Event logo uploaded successfully";
