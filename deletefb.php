@@ -3,7 +3,7 @@
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $sql = "DELETE FROM feedback WHERE mid = $id";
+        $sql = "DELETE FROM message WHERE mid = $id";
 
         if($conn->query($sql) === TRUE){
             header("location:adfeedback.php");
