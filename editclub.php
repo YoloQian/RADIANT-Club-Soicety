@@ -98,7 +98,8 @@
                     
                     <div class="col-md-6">  
                         <label class="labels">Category</label>
-                        <select id="category" name="category" class="form-control" value="<?= $row["category"]?>">
+                        <select id="category" name="category" class="form-control" value="">
+                            <option value="<?= $row["category"]?>" selected="true" hidden>Current: -- <?= $row["category"]?> --</option>
                             <option value="Course-based & Academic">Course-based & Academic</option>
                             <option value="General Interest">General Interest</option>
                             <option value="Performing & Creative">Performing & Creative</option>
