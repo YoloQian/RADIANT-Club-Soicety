@@ -281,11 +281,18 @@
                         <label class="labels">Club</label>
                         <?php 
                         $cid = $row["clubid"];
-                        $query = mysqli_query(
+                        if (empty($cid)) {
+                          echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='---' >";
+                        }else{
+                          $query = mysqli_query(
                             $conn,"SELECT * FROM clubs WHERE cid = $cid");
-                        $res = mysqli_fetch_array($query);
-                        $clubname = $res['cname'];
-                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+                            $res = mysqli_fetch_array($query);
+                            $clubname = $res['cname'];
+                          echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+                        }
+                        
+                        
+                        
 
                          ?>
                     </div>
