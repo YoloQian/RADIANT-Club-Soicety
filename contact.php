@@ -51,6 +51,7 @@
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Koulen' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Tiro Gurmukhi' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <link rel="stylesheet" href="contact.css">
     <style>
@@ -230,11 +231,11 @@
                 </div>
             </section>
         <!--Form-->
-            <div class="content" style="font-family: Koulen,san-serif; font-size:20px">
+            <div class="content" style="font-family: Tiro Gurmukhi,san-serif; font-size:20px">
                 <form action="" id="f" method="post">
                     <div class="row " >
                         <div class="col-25 text-center">
-                            <label for="Mname">Name:</label>
+                            <label for="Mname"><b>Name:</b></label>
                         </div>
                         <div class="col-75">
                             <input type="text" id="Mname" name="Mname" class="form-control req" required="required" placeholder="Enter Your Name.." style="height:50px;width:400px">
@@ -242,7 +243,7 @@
                     </div>
                     <div class="row">
                         <div class="col-25 text-center" >
-                            <label for="Memail">Email:</label>
+                            <label for="Memail"><b>Email:</b></label>
                         </div>
                         <div class="col-75">
                             <input type="email" id="Memail" name="Memail" class="form-control req" required="required" placeholder="Enter Your Email Address.." style="height:50px;width:400px;">
@@ -251,7 +252,7 @@
                     <hr style="background: #999999; border:0; height:5px" />
                     <div class="row">
                         <div class="col-25 text-center">
-                            <label for="Msubject">Subject:</label>
+                            <label for="Msubject"><b>Subject:</b></label>
                         </div>
                         <div class="col-75">
                             <input type="text" id="Msubject" name="Msubject" class="form-control req" required="required" placeholder="Enter Subject.." style="width:400px;">
@@ -259,7 +260,7 @@
                     </div>  
                     <div class="row">
                         <div class="col-25 text-center">
-                            <label for="Mmessage">Message:</label>
+                            <label for="Mmessage"><b>Message:</b></label>
                         </div>
                         <div class="col-75">
                             <textarea id="Mmessage" name="Mmessage" class="form-control req" required="required" placeholder="Write Message.." style="height:200px"></textarea>
