@@ -137,11 +137,15 @@
                         <input type="text" name="clubid" class="form-control" value="<?= $row["clubid"]?>">
                         <?php 
                             $cid = $row["clubid"];
-                            $query = mysqli_query(
-                                $conn,"SELECT * FROM clubs WHERE cid = $cid");
-                            $res = mysqli_fetch_array($query);
-                            $clubname = $res['cname'];
-                            echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+                            if (empty($cid)) {
+                                echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='---' >";
+                              }else{
+                                $query = mysqli_query(
+                                  $conn,"SELECT * FROM clubs WHERE cid = $cid");
+                                  $res = mysqli_fetch_array($query);
+                                  $clubname = $res['cname'];
+                                echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+                              }
 
                          ?>
                     </div>
@@ -149,10 +153,27 @@
                     <label class="labels">Role</label>
                         <br>
                         <select type="text" class="form-control" id="role" name="role" value="<?= $row["role"]?>">
+                            <option value="<?= $row["role"]?>" selected="true" hidden>Current: -- <?= $row["role"]?> --</option>
                             <option value="Committee">Committee</option>
                             <option value="Organizer">Organizer</option>
                             <option value="Students">Students</option>
                         </select>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                    <?php 
+                        include "logic.php";
+                        $result = mysqli_query($conn,$query);
+                        while ($row = mysqli_fetch_array($result)){
+                        ?>
+                    <div class="col-md-12">
+                        <label for="clubid" class="form-label"></label><span class="text-muted">Clubs & Societies:</span>
+                        <?php foreach($result as $r){ ?>
+                            <?php echo '['.$r["cid"].' - '.$r["cname"].'] &nbsp;&nbsp;'; ?>
+                            
+                        <?php } }
+                        ?>
                     </div>
                     <div class="col-md-2">
                     <br>
@@ -164,9 +185,8 @@
                     </div>
                 </div>
     </div>
-                <?php
-        }
-        ?>
+                
+        
             </form>
             </div>
         </div>
