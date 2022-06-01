@@ -171,7 +171,7 @@ top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;
             echo "<td>" . $row['cname'] . "</td>";
             echo "<td>" . $row['edate_time'] . "</td>";
             echo "<td > <a class='btn btn-success' href='./eventapprove.php?id= ".$row['aeid'] . "'>Approve</a> </td>";
-            echo "<td > <a class='btn btn-danger' href='./eventdecline.php?id= ".$row['aeid'] . "'>Decline</a> </td>";
+            echo "<td > <a class='btn btn-danger' onclick='return confirm()' href='./eventdecline.php?id= ".$row['aeid'] . "'>Decline</a> </td>";
             echo "</tr>";
             }
             echo "</table>";

@@ -177,7 +177,7 @@
             echo "<td>" . $line['role'] . "</td>";
             echo "<td>" . $line['clubid'] . "</td>";
             echo "<td> <a class='btn btn-info' href='./cedituser.php?id= ".$line['sid'] . "'>Edit</a> </td>";
-            echo "<td> <a class='btn btn-danger' href='./cremoveuser.php?id= ".$line['sid'] . "'>Remove</a> </td>";
+            echo "<td> <a class='btn btn-danger' onclick='return confirm()' href='./cremoveuser.php?id= ".$line['sid'] . "'>Remove</a> </td>";
             echo "</tr>";
             }
             }

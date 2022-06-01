@@ -174,7 +174,7 @@
             echo "<td>" . $line['cname'] . "</td>";
             echo "<td>" . $line['adate_time'] . "</td>";
             echo "<td > <a class='btn btn-success' href='./capprove.php?id= ".$line['aid'] . "'>Approve</a> </td>";
-            echo "<td > <a class='btn btn-danger' href='./cdecline.php?id= ".$line['aid'] . "'>Decline</a> </td>";
+            echo "<td > <a class='btn btn-danger' onclick='return confirm()' href='./cdecline.php?id= ".$line['aid'] . "'>Decline</a> </td>";
             echo "</tr>";
             }
             }

@@ -169,7 +169,7 @@
             echo "<td>" . $row['cid'] . "</td>";
             echo "<td>" . $row['cname'] . "</td>";
             echo "<td>" . $row['edate_time'] . "</td>";
-            echo "<td> <a class='btn btn-danger' href='./deleteevent.php?id=".$row['eid'] . "'>Delete</a> </td>";
+            echo "<td> <a class='btn btn-danger' onclick='return confirm()' href='./deleteevent.php?id=".$row['eid'] . "'>Delete</a> </td>";
             echo "</tr>";
             }
             echo "</table>";

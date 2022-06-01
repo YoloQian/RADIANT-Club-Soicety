@@ -178,7 +178,7 @@
             echo "<td>" . $row['venue'] . "</td>";
             echo "<td>" . $row['location'] . "</td>";
             echo "<td > <a class='btn btn-info' href='./editclub.php?id= ".$row['cid'] . "'>Edit</a> </td>";
-            echo "<td > <a class='btn btn-danger' href='./deleteclub.php?id= ".$row['cid'] . "'>Delete</a> </td>";
+            echo "<td > <a class='btn btn-danger' onclick='return confirm()' href='./deleteclub.php?id= ".$row['cid'] . "'>Delete</a> </td>";
             echo "</tr>";
             }
             echo "</table>";

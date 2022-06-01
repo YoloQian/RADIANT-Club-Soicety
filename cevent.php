@@ -179,7 +179,7 @@
                 echo "<td>" . $line['edate_time'] . "</td>";
                 echo "<td > <a class='btn btn-info' href='./eannoucement.php?id= ".$line['eid'] . "'>Post</a> </td>";
                 echo "<td > <a class='btn btn-success' href='./editevent.php?id= ".$line['eid'] . "'>Edit</a> </td>";
-                echo "<td > <a class='btn btn-danger' href='./deleteevent.php?id= ".$line['eid'] . "'>Delete</a> </td>";
+                echo "<td > <a class='btn btn-danger' onclick='return confirm()' href='./deleteevent.php?id= ".$line['eid'] . "'>Delete</a> </td>";
                 echo "</tr>";
                   }
               }

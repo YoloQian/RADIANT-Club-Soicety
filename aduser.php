@@ -142,7 +142,7 @@
       </div>    
     <!-- user table -->
     <button onclick="location.href='createusers.php'" type="button" class="btn btn-success justify-content-end">Add New User</button>
-      <div class="table-responsive">
+      <div class="table">
         <br>
       <?php
         $result =mysqli_query($conn,"SELECT * from students");
@@ -184,7 +184,8 @@
             echo "<td>" . $row['role'] . "</td>";
             echo "<td>" . $row['clubid'] . "</td>";
             echo "<td> <a class='btn btn-info' href='./edituser.php?id= ".$row['sid'] . "'>Edit</a> </td>";
-            echo "<td> <a class='btn btn-danger' href='./deleteuser.php?id= ".$row['sid'] . "'>Delete</a> </td>";
+            echo "<td> <a class='btn btn-danger'  onclick='return confirm()' href='./deleteuser.php?id= ".$row['sid'] . "'>Delete</a> </td>";
+            
             echo "</tr>";
             }
             echo "</table>";

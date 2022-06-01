@@ -166,7 +166,7 @@
             echo "<td>" . $row['subject'] . "</td>";
             echo "<td>" . $row['message'] . "</td>";
             echo "<td>" . $row['mdate_time'] . "</td>";
-            echo "<td > <a class='btn btn-danger' href='./deletefb.php?id= ".$row['mid'] . "'>Mark As Read</a> </td>";
+            echo "<td > <a class='btn btn-danger' onclick='return confirm()' href='./deletefb.php?id= ".$row['mid'] . "'>Mark As Read</a> </td>";
             echo "</tr>";
             }
             echo "</table>";
