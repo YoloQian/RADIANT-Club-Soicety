@@ -100,7 +100,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="labels">Description</label>
-                            <textarea type="text" name="description" class="form-control" placeholder="" style="height:300px;width:500px" value="<?= $row["description"]?>"></textarea>
+                            <textarea type="text" name="description" class="form-control" placeholder="" style="height:300px;width:500px" value=""><?= $row["description"]?></textarea>
                         </div>
                     </div>
                     <div class="row mt-2">

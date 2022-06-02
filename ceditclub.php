@@ -22,17 +22,9 @@ s<?php
         $mail = $_POST['mail'];
         $venue = $_POST['venue'];
         $location = $_POST['location'];
-
-        $cimage = $_FILES["cimage"]["name"];
-        $tempcimage = $_FILES["cimage"]["tmp_name"];
-            $cfolder = "clubsimages/" . $cimage;
-
-        $wallpaper = $_FILES["wallpaper"]["name"];
-        $tempwallpaper = $_FILES["wallpaper"]["tmp_name"];
-            $wfolder = "clubswallpaper/" . $wallpaper;
         
-        $query = "UPDATE `clubs` SET `cid`='[value-1]',`cname`='$cname',`cimage`='$cimage',`category`='$category',
-        `content`='$content',`wallpaper`='$wallpaper',`link`='$link',`mail`='$mail',`venue`='$venue',`location`='$location' WHERE cid=$idnum";
+        $query = "UPDATE `clubs` SET `cid`='[value-1]',`cname`='$cname',`category`='$category',
+        `content`='$content',`link`='$link',`mail`='$mail',`venue`='$venue',`location`='$location' WHERE cid=$idnum";
         
         mysqli_query($conn, $query);
 
@@ -135,7 +127,8 @@ s<?php
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Category</label>
-                        <select id="category" name="category" class="form-control" value="<?= $row["category"]?>" >
+                        <select id="category" name="category" class="form-control" value="">
+                            <option value="<?= $row["category"]?>" selected="true" hidden>Current: -- <?= $row["category"]?> --</option>
                             <option value="Course-based & Academic">Course-based & Academic</option>
                             <option value="General Interest">General Interest</option>
                             <option value="Performing & Creative">Performing & Creative</option>

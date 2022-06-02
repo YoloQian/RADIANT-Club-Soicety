@@ -150,8 +150,8 @@
                 <th>Country</th>
                 <th>Role</th>
                 <th>Club/Society ID</th>
-                <th>View User / Assign Role</th>
-                <th>Remove User</th>
+                <th>User Information / Assign Role</th>
+                <th>Remove From Club</th>
             </tr>";
 
             while($row = mysqli_fetch_array($profile))
