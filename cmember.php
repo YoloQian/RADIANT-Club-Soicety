@@ -141,18 +141,16 @@
                 <th>SID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Fname</th>
                 <th>Lname</th>
                 <th>Intake</th>
                 <th>Mobile.No</th>
                 <th>Gender</th>
-                <th>Birth_date</th>
-                <th>IC/Passport</th>
+                <th>Birthday</th>
                 <th>Country</th>
                 <th>Role</th>
                 <th>Club/Society ID</th>
-                <th>Edit User</th>
+                <th>View User / Assign Role</th>
                 <th>Remove User</th>
             </tr>";
 
@@ -165,14 +163,12 @@
             echo "<td>" . $line['sid'] . "</td>";
             echo "<td>" . $line['username'] . "</td>";
             echo "<td>" . $line['email'] . "</td>";
-            echo "<td>" . $line['password'] . "</td>";
             echo "<td>" . $line['Fname'] . "</td>";
             echo "<td>" . $line['Lname'] . "</td>";
             echo "<td>" . $line['intake'] . "</td>";
             echo "<td>" . $line['mobile_num'] . "</td>";
             echo "<td>" . $line['gender'] . "</td>";
             echo "<td>" . $line['birth_date'] . "</td>";
-            echo "<td>" . $line['ic_passport'] . "</td>";
             echo "<td>" . $line['country'] . "</td>";
             echo "<td>" . $line['role'] . "</td>";
             echo "<td>" . $line['clubid'] . "</td>";
