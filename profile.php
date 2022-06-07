@@ -294,8 +294,15 @@
                     </div>
                 
                     <div class="col-md-6">  
-                        <label class="labels">Club ID</label>
-                        <input type="text" name="clubid" class="form-control" placeholder="" readonly value="<?php echo $row["clubid"]?>" >
+                        <label class="labels">Club</label>
+                        <?php 
+                        $query = mysqli_query(
+                            $conn,"SELECT clubs.cname FROM clubs INNER JOIN students ON clubs.cid = students.clubid");
+                        $res = mysqli_fetch_array($query);
+                        $clubname = $res['cname'];
+                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+
+                         ?>
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Role</label>
