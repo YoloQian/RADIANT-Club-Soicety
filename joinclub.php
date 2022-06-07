@@ -7,7 +7,6 @@ $dbase = "sdp";
 $conn = mysqli_connect($servername,$user,$password,$dbase);
 
 session_start();
-include "logic.php";
 if(!isset($_SESSION['username'])){
     $message = '-- Sorry You Are Not Allowed to Access This Page --\nTo access this page, you must be logged in.\nPlease try again after you LOG IN.';
     echo "<SCRIPT> 
@@ -15,6 +14,22 @@ if(!isset($_SESSION['username'])){
             window.location.replace('login.php');
         </SCRIPT>";
         mysql_close();
+}
+
+$sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
+            $result = mysqli_query($conn, $sql_query);
+            while ($row = mysqli_fetch_array($result)) {
+            $cid = $row["clubid"];
+            
+            
+// Evaluates to true because $var is empty
+if (!empty($cid)) {
+  $message2 = '-- Sorry You Are Not Allowed to Access This Page --\n It is Because You Already Have a Club \n Please Inform Committee of Your Club, If You Want to Quit Current Club.';
+  echo "<SCRIPT> 
+          alert('$message2')
+          window.location.replace('clubs.php?id=');
+      </SCRIPT>";
+}
 }
 
 
@@ -59,6 +74,8 @@ if(isset($_POST['submit'])){
     <title>Club Application - RADIANT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -129,6 +146,26 @@ if(isset($_POST['submit'])){
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- committee only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                      echo "<li><a class='dropdown-item' href='committee.php'>
+                      <i class='bi bi-card-checklist' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                    }
+                    }
+                    ?>
+                    <!-- Organizer only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
+                      echo "<li><a class='dropdown-item' href='organizer.php'>
+                      <i class='bi bi-calendar2-event' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                    }
+                    }
+                    ?>
                   <!-- admin only see -->
                   <?php
                     if($_SESSION['fullname'] == 'admin'){
@@ -159,6 +196,7 @@ if(isset($_POST['submit'])){
     
     <div class="container">
     <main>
+    <?php include "logic.php"; ?>
     <form class="needs-validation" novalidate="" action="" id="a" method="post">
     <?php foreach($result as $r){ ?>
         <div class="py-5 text-center">

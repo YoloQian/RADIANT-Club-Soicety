@@ -12,7 +12,11 @@
               {while($line = mysqli_fetch_array($result)){
                 if($line[0] == $id){
                     $id = $line[3];
+<<<<<<< HEAD
                    $sql = "UPDATE `students` SET `clubid`= $row[15] WHERE mobile_num = $id";
+=======
+                   $sql = "UPDATE students SET clubid= $row[15] WHERE mobile_num = $id";
+>>>>>>> 075cdcd94284ea0764945cbe92c20fdbad0a42dd
 
         if($conn->query($sql) === TRUE){
             $remove = "DELETE FROM applyjoinclub WHERE contact_num = $id";

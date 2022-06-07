@@ -45,10 +45,13 @@
     <title>Contact - RADIANT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Koulen' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Tiro Gurmukhi' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="images/android-icon-36x36.png">
     <link rel="stylesheet" href="contact.css">
     <style>
@@ -120,7 +123,7 @@
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
                       echo "<li><a class='dropdown-item' href='committee.php'>
-                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                      <i class='bi bi-card-checklist' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
                     }
                     }
                     ?>
@@ -130,7 +133,7 @@
                     while($row = mysqli_fetch_array($result)){
                     if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
                       echo "<li><a class='dropdown-item' href='organizer.php'>
-                      <i class='fa fa-address-card-o' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                      <i class='bi bi-calendar2-event' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
                     }
                     }
                     ?>
@@ -200,7 +203,7 @@
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
                   </svg>
                     <br><br>
-                    <a href="https://www.facebook.com/Radiant-Club-Soicety-113966541324963" style="text-align:center; font-size: 1.1rem; " class="lh-1">@Radiant Club & Soicety
+                    <a href="https://www.facebook.com/Radiant-Club-Soicety-113966541324963"target="_blank" style="text-align:center; font-size: 1.1rem; " class="lh-1">@Radiant Club & Soicety
                     </a>
                     <br><br><br>
                 </div>
@@ -228,11 +231,11 @@
                 </div>
             </section>
         <!--Form-->
-            <div class="content" style="font-family: Koulen,san-serif; font-size:20px">
+            <div class="content" style="font-family: Tiro Gurmukhi,san-serif; font-size:20px">
                 <form action="" id="f" method="post">
                     <div class="row " >
                         <div class="col-25 text-center">
-                            <label for="Mname">Name:</label>
+                            <label for="Mname"><b>Name:</b></label>
                         </div>
                         <div class="col-75">
                             <input type="text" id="Mname" name="Mname" class="form-control req" required="required" placeholder="Enter Your Name.." style="height:50px;width:400px">
@@ -240,7 +243,7 @@
                     </div>
                     <div class="row">
                         <div class="col-25 text-center" >
-                            <label for="Memail">Email:</label>
+                            <label for="Memail"><b>Email:</b></label>
                         </div>
                         <div class="col-75">
                             <input type="email" id="Memail" name="Memail" class="form-control req" required="required" placeholder="Enter Your Email Address.." style="height:50px;width:400px;">
@@ -249,7 +252,7 @@
                     <hr style="background: #999999; border:0; height:5px" />
                     <div class="row">
                         <div class="col-25 text-center">
-                            <label for="Msubject">Subject:</label>
+                            <label for="Msubject"><b>Subject:</b></label>
                         </div>
                         <div class="col-75">
                             <input type="text" id="Msubject" name="Msubject" class="form-control req" required="required" placeholder="Enter Subject.." style="width:400px;">
@@ -257,7 +260,7 @@
                     </div>  
                     <div class="row">
                         <div class="col-25 text-center">
-                            <label for="Mmessage">Message:</label>
+                            <label for="Mmessage"><b>Message:</b></label>
                         </div>
                         <div class="col-75">
                             <textarea id="Mmessage" name="Mmessage" class="form-control req" required="required" placeholder="Write Message.." style="height:200px"></textarea>

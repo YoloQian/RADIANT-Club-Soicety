@@ -24,6 +24,7 @@
     <title>Edit User - RADIANT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -41,6 +42,9 @@
       margin: auto;
       padding: 10px;
       }
+      label{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
@@ -57,10 +61,9 @@
     <!--Profile-->
     <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
     <div class="row d-flex justify-content-center" style="width: 1300px; ">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">                
+        <div class=" border-right">
+            <div class="d-flex flex-column align-items-center text-center ">                
             <span class="font-weight-bold" style="font-size: 1.3rem;">
-                <br>
             </span>
             </div>
             </div>
@@ -71,11 +74,11 @@
             
             ?>
             
-        <div class="col-md-5 border-right"> 
-            <div class="p-3 py-5">
+        <div class="col-md-6 border-right"> 
+            <div class="">
             <form action="./cusermodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right" style="font-size:2.5rem"><b>User Profile - Assign Role</b></h4>
+                    <h4 class="text-right" style="font-size:2.5rem"><b>Member Profile - Assign Role</b></h4>
                 </div>
                 <div class="row mt-2">
                   <div class="col-md-6">
@@ -139,19 +142,33 @@
                     <div class="col-md-6">
                         <label class="labels">Club ID</label>
                         <input type="text" name="clubid" class="form-control" readonly value="<?= $row["clubid"]?>">
+                        <?php 
+                        $cid = $row["clubid"];
+                        $query = mysqli_query(
+                            $conn,"SELECT * FROM clubs WHERE cid = $cid");
+                        $res = mysqli_fetch_array($query);
+                        $clubname = $res['cname'];
+                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+
+                         ?>
                     </div>
                     <div class="col-md-6">  
                         <label class="labels">Role</label>
-                        <input type="text" name="role" class="form-control"  placeholder="" value="<?= $row["role"]?>" >
+                        <br>
+                        <select type="text" class="form-control" id="role" name="role" value="<?= $row["role"]?>">
+                            <option value="Committee">Committee</option>
+                            <option value="Organizer">Organizer</option>
+                            <option value="Students">Students</option>
+                        </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                     <br>
-                    <input type="submit" value="Submit"></button>
+                    <input type="submit" value="Submit" class="btn btn-warning" ></button>
                     </div>
-                    <div class="col-md-6">
-                    <br>
-                    <button type="submit" form='' onclick="location.href='cmember.php'" id= "$row['sid']"  value="Submit">Back</button>
-                    </div>
+                    <div class="col-md-2">
+                            <br>
+                            <input type="button" class="btn btn-info" value="Go back" onclick="history.back()">
+                        </div>
                 </div>
     </div>
                 <?php
@@ -160,6 +177,7 @@
             </form>
             </div>
         </div>
+        <br><br>
 
     <!--Footer-->
     <div class="container">

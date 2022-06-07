@@ -6,7 +6,7 @@
         $sql = "DELETE FROM events WHERE eid = $id";
 
         if($conn->query($sql) === TRUE){
-            header("location:organizer.php");
+            echo '<script>onclick=history.back()</script>';
         }else{
             echo "Something Went wrong";
         }

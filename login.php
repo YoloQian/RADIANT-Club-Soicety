@@ -17,7 +17,7 @@
         $result = mysqli_query($conn,$query);
         $row = mysqli_fetch_array($result);
         $count = mysqli_num_rows($result);
-        echo $count;
+
 
         if($count == 1){
             // echo "record found";
@@ -27,6 +27,7 @@
             echo header ("Location: index.php");
         }else {
             echo '<script>alert("-- Username or Password Incorrect -- \nLog In Unsuccessful, Please Try Again.")</script>';
+            echo "<script> window.location.href='login.php';</script>";
         }
     }
 ?>

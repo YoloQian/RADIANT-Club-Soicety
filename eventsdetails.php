@@ -8,14 +8,7 @@
     
 
     session_start();
-    $query = "SELECT * FROM events";
-    $result = mysqli_query($conn,$query);
-
-    if(isset($_REQUEST['eid'])){
-      $eid = $_REQUEST['eid'];
-      $query = "SELECT * FROM events WHERE eid = $eid";
-      $result = mysqli_query($conn,$query);
-    }
+    
 
 ?>
 
@@ -25,11 +18,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    $query = "SELECT * FROM events";
+    $result = mysqli_query($conn,$query);
+
+    if(isset($_REQUEST['eid'])){
+      $eid = $_REQUEST['eid'];
+      $query = "SELECT * FROM events WHERE eid = $eid";
+      $result = mysqli_query($conn,$query);
+    }
+    ?>
     <?php foreach($result as $r){ ?>
       <title><?php echo $r["etitle"]; ?> - RADIANT</title>
       <?php } ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -141,6 +146,26 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- committee only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                      echo "<li><a class='dropdown-item' href='committee.php'>
+                      <i class='bi bi-card-checklist' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                    }
+                    }
+                    ?>
+                    <!-- Organizer only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
+                      echo "<li><a class='dropdown-item' href='organizer.php'>
+                      <i class='bi bi-calendar2-event' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                    }
+                    }
+                    ?>
                   <!-- admin only see -->
                   <?php
                     if($_SESSION['fullname'] == 'admin'){
@@ -169,6 +194,16 @@
     
 <!-- Event Details -->
     <br><br>
+    <?php
+    $query = "SELECT * FROM events";
+    $result = mysqli_query($conn,$query);
+
+    if(isset($_REQUEST['eid'])){
+      $eid = $_REQUEST['eid'];
+      $query = "SELECT * FROM events WHERE eid = $eid";
+      $result = mysqli_query($conn,$query);
+    }
+    ?>
 
     <?php foreach($result as $r){ ?>
         <div class="row g-5 content">

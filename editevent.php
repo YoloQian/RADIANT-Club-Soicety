@@ -41,6 +41,9 @@
       margin: auto;
       padding: 10px;
       }
+      label{
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
@@ -56,7 +59,7 @@
     
     <!--Profile-->
     <div class="container rounded bg-white mt-5 mb-5 content" style="font-family: Source Sans Pro,san-serif;">
-    <div class="row d-flex justify-content-center" style="width: 1300px; ">
+    <div class="row d-flex justify-content-center" style=" ">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">                
             <span class="font-weight-bold" style="font-size: 1.3rem;">
@@ -71,60 +74,71 @@
             
             ?>
             
-        <div class="col-md-5 border-right"> 
-            <div class="p-3 py-5">
+        <div class="border-right cotent">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right" style="font-size:2.5rem"><b>Event Details</b></h4>
+            </div> 
+            <div class="p-3 py-5 border border-dark">
+                    <img class="text-center" style="height: 200px; width: 200px" src="<?php echo 'eventsimages/' .$row["eimage"]; ?>">
+
             <form action="./eventmodify.php?id=<?= $id ?>" method="POST" onSubmit="return validate();">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right" style="font-size:2.5rem"><b>Event Details</b></h4>
-                </div>
                 <div class="row mt-2">
-                  <div class="col-md-6">
+                
+                    <div class="col-md-6">
                       <label class="labels">Event ID</label>
                       <input type="text" name="idnum" class="form-control" placeholder="" readonly value="<?= $row["eid"]?>">
-                  </div>
-                </div>
-                <div class="row mt-2">
+                    </div>
                     <div class="col-md-6">  
                         <label class="labels">Event Title</label>
                         <input type="text" name="etitle" class="form-control"  placeholder="" value="<?= $row["etitle"]?>" >
                     </div>
-                    <div class="col-md-6">  
-                        <label class="labels">Announcement</label>
-                        <input type="text" name="announcement" class="form-control" placeholder="" value="<?= $row["announcement"]?>" >
                     </div>
-                    <div class="col-md-6">
-                        <label class="labels">Description</label>
-                        <input type="text" name="description" class="form-control" placeholder="" value="<?= $row["description"]?>">
+                    <div class="row mt-2">
+                        <div class="col-md-6">  
+                            <label class="labels">Announcement</label>
+                            <textarea type="text" name="announcement" class="form-control" style="height:300px;width:500px" placeholder="" value="" ><?= $row["announcement"]?></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Description</label>
+                            <textarea type="text" name="description" class="form-control" placeholder="" style="height:300px;width:500px" value=""><?= $row["description"]?></textarea>
+                        </div>
                     </div>
-                    <div class="col-md-6">  
-                        <label class="labels">Club ID</label>
-                        <input type="text" name="clubid" class="form-control" placeholder="" value="<?= $row["cid"]?>" >
-                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">  
+                            <label class="labels">Club ID</label>
+                            <input type="text" name="clubid" class="form-control" placeholder="" readonly value="<?= $row["cid"]?>" >
+                        </div>
 
-                    <div class="col-md-6">  
-                        <label class="labels">Club Name</label>
-                        <input type="text" name="clubname" class="form-control" placeholder="" value="<?= $row["cname"]?>" >
-                    </div>
-                    <div class="col-md-6">  
-                        <label class="labels">Date / Time</label>
-                        <input type="text" name="datetime" class="form-control" readonly placeholder="" value="<?= $row["edate_time"]?>" >
-                    </div>
-                    <div class="col-md-6">
-                    <br>
-                    <input type="submit" value="Submit"></button>
-                    </div>
-                    <div class="col-md-6">
-                    <br>
-                    <button type="submit" form='' onclick="location.href='organizer.php'" id= "$row['sid']"  value="Submit">Back</button>
+                        <div class="col-md-6">  
+                            <label class="labels">Club Name</label>
+                            <input type="text" name="clubname" class="form-control" placeholder="" readonly value="<?= $row["cname"]?>" >
+                        </div>
+                        <div class="col-md-6">  
+                            <label class="labels">Date / Time</label>
+                            <input type="text" name="datetime" class="form-control" readonly placeholder="" value="<?= $row["edate_time"]?>" >
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels"></label>
+                            <ul><input type="file" id="" name="" hidden/></ul>
+                        </div>
+                        
+                        
+                        <div class="col-md-2">
+                            <br>
+                            <input type="submit" class="btn btn-warning" value="Submit"></button>
+                        </div>
+                        <div class="col-md-2">
+                            <br>
+                            <input type="button" class="btn btn-info" value="Go back" onclick="history.back()">
+                        </div>
                     </div>
                 </div>
-    </div>
                 <?php
         }
         ?>
-            </form>
+                </form>
+                </div>
             </div>
-        </div>
 
     <!--Footer-->
     <div class="container">

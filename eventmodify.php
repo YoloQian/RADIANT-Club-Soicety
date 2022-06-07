@@ -17,7 +17,10 @@
         WHERE eid = $id";
 
         if($conn->query($sql) === TRUE){
-            header("location:organizer.php");
+            echo "<SCRIPT> 
+            alert('Edit Event Successfully')
+            </SCRIPT>";
+            echo '<script>onclick=history.back()</script>';
         }else{
             echo "Something Went wrong";
         }

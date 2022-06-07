@@ -29,36 +29,9 @@
         }else{
           echo "<script type='text/javascript'>alert('The Current Password You Entered Was Incorrect, Please Try Again!'); window.location.href='profile.php';</script>";
           
+          
         }
-      }
-
-    //Update Photo
-    if(isset($_POST['update_submit'])){
-        $idnum =  $_POST['idnum'];
-        $name = $_POST['name'];
-    
-        $filename = $_FILES["uploadfile"]["name"];
-        $tempname = $_FILES["uploadfile"]["tmp_name"];
-            $folder = "productimage/" . $filename;
-    
-        $code = $_POST['txtcode'];
-    
-    
-        $query = "UPDATE `students` 
-        SET `simage`='$filename' WHERE sid=$idnum";
-        
-        mysqli_query($conn, $query);
-    
-        if (move_uploaded_file($tempname, $folder)) {
-            $msg = "Product image uploaded successfully";
-        }else {
-            $msg = "Failed to uplaod product image";
-        }
-    
-        mysqli_close($conn);
-        header("location: profile.php");
-    }
-      
+      }  
 }
      
 
@@ -82,6 +55,8 @@
               ?> - RADIANT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bakbak One' rel='stylesheet'>
@@ -98,6 +73,10 @@
       max-width: 1300px;
       margin: auto;
       padding: 10px;
+      }
+
+      label{
+        font-weight: bold;
       }
     </style>
 </head>
@@ -156,6 +135,26 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="profile.php"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Edit Profile</a></li>
+                  <!-- committee only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Committee'){
+                      echo "<li><a class='dropdown-item' href='committee.php'>
+                      <i class='bi bi-card-checklist' aria-hidden='true'></i>&nbsp;Commitee</a></li>";
+                    }
+                    }
+                    ?>
+                    <!-- Organizer only-->
+                  <?php
+                    $result =mysqli_query($conn,"SELECT * from students");
+                    while($row = mysqli_fetch_array($result)){
+                    if($row['username'] == $_SESSION['fullname'] && $row['role'] == 'Organizer'){
+                      echo "<li><a class='dropdown-item' href='organizer.php'>
+                      <i class='bi bi-calendar2-event' aria-hidden='true'></i>&nbsp;Organizer</a></li>";
+                    }
+                    }
+                    ?>
                   <!-- admin only see -->
                   <?php
                     if($_SESSION['fullname'] == 'admin'){
@@ -187,24 +186,9 @@
     <div class="row d-flex justify-content-center" style="width: 1300px; ">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <!-- Update Photo-->
-            <form method="post">
-            <?php   
-                $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
-                $result = mysqli_query($conn, $sql_query);
-                while ($row = mysqli_fetch_array($result)) {
-            
-            ?>
-                
-                <img height='150'; width='150' src="<?php echo 'studentsimages/' .$row['simage']; ?>">
-                <br>
-                <input type="file" id="uploadfile" name="uploadfile" 
-                        value= "<?php echo "<img height='150'; width='150'; src=" . 'studentsimages/' .$row['simage']. ">" ?>" />
-                <input type="submit" name="update_submit" value="Update Record" />
-                
-            </form>
-                
-            <span class="font-weight-bold" style="font-size: 1.3rem;">
+                <img height='120'; width='128' src="images/personal-data.png">
+
+            <span class="font-weight-bold" style="font-size: 1.3rem;font-weight: bold;">
                 <br>
             <?php 
                 if(isset($_SESSION['username'])) {
@@ -213,7 +197,7 @@
                 } 
             ?>
             </span>
-            <span style="font-size: 1.1rem;"> 
+            <span style="font-size: 1.1rem;font-weight: bold;"> 
                 <?php
                 $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
                 $result = mysqli_query($conn, $sql_query);
@@ -221,7 +205,7 @@
                 echo $row["email"]
                 ?>
             </span>
-            <span style="font-size: 1.1rem;"> 
+            <span style="font-size: 1.1rem;font-weight: bold;"> 
                 <?php
                 $sql_query = "SELECT * FROM `students` where username ='".$_SESSION['fullname']."' LIMIT 1";
                 $result = mysqli_query($conn, $sql_query);
@@ -233,7 +217,7 @@
             <?php 
                 }
              }
-            }
+            
             ?>
             </div>
             </div>
@@ -296,11 +280,19 @@
                     <div class="col-md-6">  
                         <label class="labels">Club</label>
                         <?php 
-                        $query = mysqli_query(
-                            $conn,"SELECT clubs.cname FROM clubs INNER JOIN students ON clubs.cid = students.clubid");
-                        $res = mysqli_fetch_array($query);
-                        $clubname = $res['cname'];
-                        echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+                        $cid = $row["clubid"];
+                        if (empty($cid)) {
+                          echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='---' >";
+                        }else{
+                          $query = mysqli_query(
+                            $conn,"SELECT * FROM clubs WHERE cid = $cid");
+                            $res = mysqli_fetch_array($query);
+                            $clubname = $res['cname'];
+                          echo "<input type='text' name='club' class='form-control' placeholder='' readonly value='$clubname' >";
+                        }
+                        
+                        
+                        
 
                          ?>
                     </div>
