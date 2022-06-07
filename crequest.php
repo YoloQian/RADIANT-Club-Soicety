@@ -133,6 +133,7 @@
                 <th>Birthdate</th>
                 <th>Country</th>
                 <th>Additional Info</th>
+                <th>Club ID</th>
                 <th>Club Name</th>
                 <th>Date / Time</th>
                 <th>Approve</th>
@@ -155,6 +156,7 @@
             echo "<td>" . $line['birth_date'] . "</td>";
             echo "<td>" . $line['country'] . "</td>";
             echo "<td>" . $line['personal_statement'] . "</td>";
+            echo "<td>" . $line['clubid'] . "</td>";
             echo "<td>" . $line['cname'] . "</td>";
             echo "<td>" . $line['adate_time'] . "</td>";
             echo "<td > <a class='btn btn-success' href='./capprove.php?id= ".$line['aid'] . "'>Approve</a> </td>";

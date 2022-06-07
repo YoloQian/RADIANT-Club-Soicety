@@ -31,6 +31,7 @@ if(isset($_POST['submit'])){
   $additionalinfo = $_POST['additionalinfo'];
   $cid = $_POST['cid'];
   $cname = $_POST['cname'];
+  $aid = 1;
 
   
   //create your insert sql
